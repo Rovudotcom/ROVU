@@ -3,7 +3,7 @@ export default function HomePage() {
     <main style={{background:'#0a0a0a',color:'#fff',fontFamily:"'Inter',system-ui,sans-serif",WebkitFontSmoothing:'antialiased',overflowX:'hidden'}}>
 
       <style>{`
-        @media(max-width:768px){
+        @media(max-width:900px){
           .nav-links{display:none!important}
           .nav-mobile-btn{display:flex!important}
           .hero-btns{flex-direction:column!important;align-items:center}
@@ -12,6 +12,7 @@ export default function HomePage() {
           .steps-grid{grid-template-columns:1fr!important}
           .feat-grid{grid-template-columns:1fr!important}
           .price-grid{grid-template-columns:1fr!important}
+          .feat-grid{grid-template-columns:1fr!important}
           .proof-nums{grid-template-columns:1fr!important;max-width:100%!important}
           .footer-inner{flex-direction:column!important;gap:1rem!important}
           .section-pad{padding-left:1.25rem!important;padding-right:1.25rem!important}
