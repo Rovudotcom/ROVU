@@ -2,26 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #0a0a0a; color: #fff; font-family: 'Inter', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+
+/* Mobile nav — hide links, show hamburger */
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .nav-mobile-cta { display: flex !important; }
+  .hero-section { padding: 4rem 1.5rem 3rem !important; }
+  .hero-h1 { font-size: clamp(40px,12vw,64px) !important; }
+  .hero-stats { gap: 2rem !important; flex-wrap: wrap; }
+  .hero-btns { flex-direction: column !important; align-items: center; }
+  .hero-btns a { width: 100%; max-width: 280px; text-align: center; }
+  .story-section { padding: 4rem 1.5rem !important; }
+  .steps-section { padding: 3rem 1.5rem !important; }
+  .steps-grid { grid-template-columns: 1fr !important; }
+  .features-section { padding: 3rem 1.5rem !important; }
+  .features-grid { grid-template-columns: 1fr !important; }
+  .proof-section { padding: 4rem 1.5rem !important; }
+  .proof-nums { max-width: 100% !important; }
+  .pricing-section { padding: 3rem 1.5rem !important; }
+  .pricing-grid { grid-template-columns: 1fr !important; }
+  .finale-section { padding: 5rem 1.5rem 4rem !important; }
+  .finale-h { font-size: clamp(40px,12vw,56px) !important; }
+  .footer-inner { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+  section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@media (max-width: 480px) {
+  .proof-nums { grid-template-columns: 1fr !important; }
+  .hero-stats { justify-content: flex-start !important; gap: 2rem !important; }
 }
