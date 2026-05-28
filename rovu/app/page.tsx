@@ -1,3 +1,4 @@
+import { RovuLogo } from './logo'
 export default function HomePage() {
   return (
     <main style={{background:'#0a0a0a',color:'#fff',fontFamily:"'Inter',system-ui,sans-serif",WebkitFontSmoothing:'antialiased',overflowX:'hidden'}}>
@@ -29,7 +30,7 @@ export default function HomePage() {
       {/* NAV */}
       <nav style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'1rem 1.5rem',borderBottom:'0.5px solid rgba(255,255,255,0.06)',position:'sticky',top:0,background:'rgba(10,10,10,0.95)',backdropFilter:'blur(20px)',zIndex:100}}>
         <div style={{display:'flex',alignItems:'center',gap:10}}>
-          <div style={{width:28,height:28,background:'#5B4FE8',borderRadius:7,display:'flex',alignItems:'center',justifyContent:'center',fontWeight:600,fontSize:13,color:'#fff'}}>R</div>
+          <RovuLogo/>
           <span style={{fontSize:15,fontWeight:500,letterSpacing:'-0.02em'}}>rovu</span>
         </div>
         <div className="nav-links" style={{display:'flex',alignItems:'center',gap:'1.75rem'}}>
