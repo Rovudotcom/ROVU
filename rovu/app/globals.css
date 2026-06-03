@@ -255,3 +255,48 @@ p, span, a, button, input, textarea {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 4px; }
+
+/* Layout fixes — full width, less dead space */
+.section-wide {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 5vw, 5rem);
+  padding-right: clamp(1.5rem, 5vw, 5rem);
+  width: 100%;
+}
+
+.section-narrow {
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 5vw, 5rem);
+  padding-right: clamp(1.5rem, 5vw, 5rem);
+  width: 100%;
+}
+
+main > section, main > div {
+  padding-left: clamp(1.5rem, 5vw, 5rem) !important;
+  padding-right: clamp(1.5rem, 5vw, 5rem) !important;
+}
+
+main > section > div, main > section > h2, main > section > p {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav {
+  padding-left: clamp(1.5rem, 5vw, 4rem) !important;
+  padding-right: clamp(1.5rem, 5vw, 4rem) !important;
+}
+
+footer {
+  padding-left: clamp(1.5rem, 5vw, 4rem) !important;
+  padding-right: clamp(1.5rem, 5vw, 4rem) !important;
+}
+
+@media(min-width:1400px){
+  main > section, main > div {
+    padding-left: 6rem !important;
+    padding-right: 6rem !important;
+  }
+}
