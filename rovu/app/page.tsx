@@ -1,3 +1,4 @@
+'use client'
 import { RovuLogo } from './logo'
 
 export default function HomePage() {
