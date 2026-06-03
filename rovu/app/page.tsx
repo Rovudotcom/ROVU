@@ -51,7 +51,7 @@ export default function HomePage() {
       </nav>
 
       {/* HERO */}
-      <section style={{minHeight:'88vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'5rem 1.5rem',position:'relative',overflow:'hidden'}}>
+      <section style={{minHeight:'88vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:4rem 3rem',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'40%',left:'50%',transform:'translate(-50%,-50%)',width:600,height:600,borderRadius:'50%',background:'rgba(91,79,232,0.05)',pointerEvents:'none'}}/>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'rgba(255,255,255,0.3)',textTransform:'uppercase',marginBottom:'2rem'}}>built for australian hospitality</div>
         <h1 className="hero-h reveal reveal-delay-1" style={{fontSize:'clamp(50px,9vw,88px)',fontWeight:500,letterSpacing:'-0.05em',lineHeight:0.94,marginBottom:'1.5rem',color:'#fff'}}>your reviews.<br/>on <span style={{color:'#5B4FE8'}}>autopilot.</span></h1>
@@ -70,7 +70,7 @@ export default function HomePage() {
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.06)'}}/>
 
       {/* STORY */}
-      <section className="reveal" style={{padding:'7rem 1.5rem',maxWidth:680,margin:'0 auto',textAlign:'center'}}>
+      <section className="reveal" style={{padding:4rem 3rem',maxWidth:860,margin:'0 auto',textAlign:'center'}}>
         <div style={{fontSize:10,letterSpacing:'0.22em',color:'rgba(255,255,255,0.22)',textTransform:'uppercase',marginBottom:'1.75rem'}}>why we built this</div>
         <h2 style={{fontSize:'clamp(32px,5vw,50px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff',marginBottom:'1.5rem'}}>most happy guests<br/>never say a word.<br/><span style={{color:'#5B4FE8'}}>yours will.</span></h2>
         <p style={{fontSize:16,color:'rgba(255,255,255,0.55)',lineHeight:1.85,marginBottom:'1rem'}}>you cook great food. your team works hard. your guests leave happy. and then — <strong style={{color:'#fff',fontWeight:500}}>silence.</strong></p>
@@ -80,7 +80,7 @@ export default function HomePage() {
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.06)'}}/>
 
       {/* PRODUCT SHOWCASE — CRED style */}
-      <section style={{padding:'5rem 1.5rem',maxWidth:1000,margin:'0 auto'}}>
+      <section style={{padding:4rem 3rem',maxWidth:1200,margin:'0 auto'}}>
         <div className="reveal" style={{textAlign:'center',marginBottom:'3rem'}}>
           <div style={{fontSize:10,letterSpacing:'0.22em',color:'rgba(255,255,255,0.25)',textTransform:'uppercase',marginBottom:'1.25rem'}}>the product</div>
           <h2 style={{fontSize:'clamp(28px,5vw,42px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff'}}>three moments.<br/><span style={{color:'#5B4FE8'}}>one seamless flow.</span></h2>
@@ -93,14 +93,14 @@ export default function HomePage() {
           ].map((c,i)=>(
             <div key={i} className="product-card reveal" style={{background:c.bg,border:`0.5px solid ${c.border}`,borderRadius:20,overflow:'hidden',minHeight:400,display:'flex',flexDirection:'column',position:'relative'}}>
               <div className="card-glow" style={{position:'absolute',bottom:-60,left:'50%',transform:'translateX(-50%)',width:220,height:220,background:c.glow,borderRadius:'50%',filter:'blur(50px)',opacity:0.4,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-              <div style={{padding:'1.5rem 1.5rem 0',position:'relative',zIndex:1}}>
+              <div style={{padding:4rem 3rem 0',position:'relative',zIndex:1}}>
                 <div style={{display:'inline-flex',alignItems:'center',gap:7,background:c.tagBg,borderRadius:8,padding:'4px 10px',marginBottom:'1.25rem'}}>
                   <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:c.tagCol}}>{c.tag}</span>
                 </div>
                 <div style={{fontSize:22,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.2,color:'#fff',marginBottom:'1rem',whiteSpace:'pre-line'}}>{c.h}</div>
                 <div style={{display:'inline-flex',alignItems:'center',gap:6,border:'0.5px solid rgba(255,255,255,0.15)',borderRadius:8,padding:'7px 14px',fontSize:11,fontWeight:500,color:'rgba(255,255,255,0.55)',letterSpacing:'0.04em',textTransform:'uppercase',cursor:'pointer'}}>{c.btn} →</div>
               </div>
-              <div style={{flex:1,display:'flex',alignItems:'flex-end',justifyContent:'center',padding:'1.5rem',position:'relative',zIndex:1}}>
+              <div style={{flex:1,display:'flex',alignItems:'flex-end',justifyContent:'center',padding:4rem 3rem',position:'relative',zIndex:1}}>
                 {i===0&&(
                   <svg width="160" height="200" viewBox="0 0 160 200" fill="none">
                     <rect x="10" y="5" width="140" height="190" rx="14" fill="#1a1228" stroke="rgba(91,79,232,0.4)" stroke-width="0.5"/>
@@ -210,7 +210,7 @@ export default function HomePage() {
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.06)'}}/>
 
       {/* HOW IT WORKS */}
-      <section id="how" style={{padding:'5rem 1.5rem',maxWidth:960,margin:'0 auto'}}>
+      <section id="how" style={{padding:4rem 3rem',maxWidth:1200,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem'}}>how it works</div>
         <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff',marginBottom:'2.5rem'}}>scan. rate. <span style={{color:'#5B4FE8'}}>publish.</span></h2>
         <div className="steps-grid reveal" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:1,background:'rgba(255,255,255,0.06)',border:'0.5px solid rgba(255,255,255,0.06)',borderRadius:20,overflow:'hidden'}}>
@@ -227,12 +227,12 @@ export default function HomePage() {
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.06)'}}/>
 
       {/* FEATURES */}
-      <section id="features" style={{padding:'5rem 1.5rem',maxWidth:960,margin:'0 auto'}}>
+      <section id="features" style={{padding:4rem 3rem',maxWidth:1200,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem'}}>features</div>
         <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>everything your venue <span style={{color:'#5B4FE8'}}>needs.</span></h2>
         <div className="feat-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
           {[['ai-written reviews','full, natural reviews from customer selections. no more one-word posts.'],['negative review gating','low ratings never hit google. they go privately to you before any damage is done.'],['staff recognition','guests name the team member who made their night. great for morale and retention.'],['owner dashboard','real-time analytics, staff leaderboard, top tags, and platform breakdown.'],['google, tripadvisor & facebook','every platform australian diners use. one tap, all three covered.'],['print-ready qr cards','branded pdf table card. on your tables the same day you sign up.']].map(([t,b])=>(
-            <div key={t} className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.07)',borderRadius:14,padding:'1.5rem',transition:'border-color 0.2s'}}>
+            <div key={t} className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.07)',borderRadius:14,padding:4rem 3rem',transition:'border-color 0.2s'}}>
               <div style={{fontSize:15,fontWeight:500,color:'#fff',marginBottom:'0.5rem',letterSpacing:'-0.01em'}}>{t}</div>
               <div style={{fontSize:13,color:'rgba(255,255,255,0.55)',lineHeight:1.75}}>{b}</div>
             </div>
@@ -241,7 +241,7 @@ export default function HomePage() {
       </section>
 
       {/* PROOF — mixed colour */}
-      <section style={{padding:'5.5rem 1.5rem',textAlign:'center',background:'linear-gradient(180deg,#0a0a0a 0%,#0d0b1a 40%,#0a0a0a 100%)'}}>
+      <section style={{padding:4rem 3rem',textAlign:'center',background:'linear-gradient(180deg,#0a0a0a 0%,#0d0b1a 40%,#0a0a0a 100%)'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'rgba(255,255,255,0.25)',textTransform:'uppercase',marginBottom:'1.5rem'}}>the numbers</div>
         <h2 className="reveal" style={{fontSize:'clamp(32px,6vw,52px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.0,color:'#fff',marginBottom:'0.75rem'}}>the proof<br/><span style={{color:'#5B4FE8'}}>writes itself.</span></h2>
         <p className="reveal" style={{fontSize:15,color:'rgba(255,255,255,0.45)',marginBottom:'3.5rem'}}>what happens when happy customers can leave a review in 30 seconds.</p>
@@ -256,12 +256,12 @@ export default function HomePage() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" style={{padding:'5rem 1.5rem',maxWidth:960,margin:'0 auto'}}>
+      <section id="pricing" style={{padding:4rem 3rem',maxWidth:1200,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem'}}>pricing</div>
         <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>honest pricing.<br/><span style={{color:'#5B4FE8'}}>no surprises.</span></h2>
         <div className="price-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10}}>
           {[{n:'starter',p:'A$49',d:'single venue',f:['qr review flow','5 staff profiles','google + tripadvisor','basic analytics'],hot:false},{n:'growth',p:'A$99',d:'serious about your rating',f:['everything in starter','negative review gating','unlimited staff','all 3 platforms','weekly digest'],hot:true},{n:'chain',p:'A$249',d:'multiple locations',f:['up to 5 locations','multi-venue dashboard','white-label branding','priority support'],hot:false}].map(t=>(
-            <div key={t.n} className="reveal" style={{background:t.hot?'#0c0a18':'#0f0f0f',border:`0.5px solid ${t.hot?'rgba(91,79,232,0.5)':'rgba(255,255,255,0.07)'}`,borderRadius:14,padding:'1.5rem'}}>
+            <div key={t.n} className="reveal" style={{background:t.hot?'#0c0a18':'#0f0f0f',border:`0.5px solid ${t.hot?'rgba(91,79,232,0.5)':'rgba(255,255,255,0.07)'}`,borderRadius:14,padding:4rem 3rem'}}>
               {t.hot&&<div style={{fontSize:9,fontWeight:500,background:'rgba(91,79,232,0.18)',color:'#9b91f5',padding:'3px 9px',borderRadius:20,display:'inline-block',marginBottom:10,letterSpacing:'0.08em',textTransform:'uppercase'}}>most popular</div>}
               <div style={{fontSize:10,color:'rgba(255,255,255,0.3)',marginBottom:8,letterSpacing:'0.12em',textTransform:'uppercase'}}>{t.n}</div>
               <div style={{fontSize:34,fontWeight:500,color:'#fff',letterSpacing:'-0.04em',lineHeight:1}}>{t.p}<span style={{fontSize:12,color:'rgba(255,255,255,0.28)',fontWeight:400}}>/mo</span></div>
@@ -276,12 +276,12 @@ export default function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={{padding:'5rem 1.5rem',maxWidth:960,margin:'0 auto'}}>
+      <section style={{padding:4rem 3rem',maxWidth:1200,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'rgba(255,255,255,0.25)',textTransform:'uppercase',marginBottom:'1.5rem'}}>from the venues</div>
         <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,40px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>what owners <span style={{color:'#5B4FE8'}}>actually say.</span></h2>
         <div className="testi-grid" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:12}}>
           {[{q:'we went from 12 google reviews a month to 47. the negative review gating alone is worth every cent — caught two unhappy tables before they went public.',n:'James Chen',r:'owner, the harbour table — sydney',i:'JC',c:'#5B4FE8'},{q:'my staff actually compete to get mentioned in reviews now. the leaderboard changed the whole culture of the restaurant.',n:'Sarah Mitchell',r:'manager, circa bistro — melbourne',i:'SM',c:'#1D9E75'},{q:'set up in an afternoon. our google rating went from 4.1 to 4.7 in six weeks. wish i found this two years ago.',n:'Raj Patel',r:'owner, spice route — brisbane',i:'RP',c:'#E8934F'}].map(t=>(
-            <div key={t.n} className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.07)',borderRadius:16,padding:'1.5rem'}}>
+            <div key={t.n} className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.07)',borderRadius:16,padding:4rem 3rem'}}>
               <div style={{fontSize:30,color:'#5B4FE8',lineHeight:1,marginBottom:10,fontFamily:'Georgia,serif'}}>"</div>
               <div style={{fontSize:14,color:'rgba(255,255,255,0.65)',lineHeight:1.75,marginBottom:'1.25rem',fontStyle:'italic'}}>{t.q}</div>
               <div style={{display:'flex',alignItems:'center',gap:10}}>
@@ -300,7 +300,7 @@ export default function HomePage() {
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.06)'}}/>
 
       {/* FAQ */}
-      <section style={{padding:'5rem 1.5rem',maxWidth:640,margin:'0 auto'}}>
+      <section style={{padding:4rem 3rem',maxWidth:820,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'rgba(255,255,255,0.22)',textTransform:'uppercase',marginBottom:'1.5rem'}}>honest answers</div>
         <h2 className="reveal" style={{fontSize:'clamp(26px,4vw,38px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2rem',lineHeight:1.1}}>things people ask<br/>before signing up.</h2>
         <div id="faqs">
@@ -319,7 +319,7 @@ export default function HomePage() {
       </section>
 
       {/* FINALE */}
-      <section style={{textAlign:'center',padding:'8rem 1.5rem 7rem',position:'relative',overflow:'hidden'}}>
+      <section style={{textAlign:'center',padding:4rem 3rem 7rem',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',bottom:-80,left:'50%',transform:'translateX(-50%)',width:500,height:300,background:'rgba(91,79,232,0.05)',borderRadius:'50%',pointerEvents:'none'}}/>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.22em',color:'rgba(255,255,255,0.18)',textTransform:'uppercase',marginBottom:'2rem'}}>ready when you are</div>
         <h2 className="finale-h reveal" style={{fontSize:'clamp(44px,8vw,72px)',fontWeight:500,letterSpacing:'-0.05em',color:'#fff',lineHeight:0.97,marginBottom:'1.25rem'}}>not everyone<br/>gets <span style={{color:'#5B4FE8'}}>5 stars.</span><br/>you will.</h2>
@@ -330,8 +330,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer style={{borderTop:'0.5px solid rgba(255,255,255,0.06)',padding:'1.75rem 1.5rem'}}>
-        <div className="footer-inner" style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'1rem',maxWidth:960,margin:'0 auto'}}>
+      <footer style={{borderTop:'0.5px solid rgba(255,255,255,0.06)',padding:4rem 3rem'}}>
+        <div className="footer-inner" style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'1rem',maxWidth:1200,margin:'0 auto'}}>
           <RovuLogo width={100} height={32}/>
           <div style={{display:'flex',gap:'1.25rem',flexWrap:'wrap'}}>
             <a href="#" style={{fontSize:11,color:'rgba(255,255,255,0.25)',textDecoration:'none'}}>privacy</a>
