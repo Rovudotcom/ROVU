@@ -87,9 +87,9 @@ export default function HomePage() {
           <a href="#how" className="nav-link" style={{color:'rgba(255,255,255,0.55)',fontSize:13,textDecoration:'none',transition:'color 0.2s'}}>How It Works</a>
           <a href="#features" className="nav-link" style={{color:'rgba(255,255,255,0.55)',fontSize:13,textDecoration:'none',transition:'color 0.2s'}}>Features</a>
           <a href="#pricing" className="nav-link" style={{color:'rgba(255,255,255,0.55)',fontSize:13,textDecoration:'none',transition:'color 0.2s'}}>Pricing</a>
-          <a href="mailto:hello@rovu.com.au" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'7px 18px',borderRadius:8,fontSize:13,fontWeight:500,textDecoration:'none',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
+          <a href="/book-demo" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'7px 18px',borderRadius:8,fontSize:13,fontWeight:500,textDecoration:'none',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
         </div>
-        <a href="mailto:hello@rovu.com.au" className="nav-mobile" style={{display:'none',background:'#5B4FE8',color:'#fff',padding:'7px 14px',borderRadius:8,fontSize:13,fontWeight:500,textDecoration:'none'}}>Demo</a>
+        <a href="/book-demo" className="nav-mobile" style={{display:'none',background:'#5B4FE8',color:'#fff',padding:'7px 14px',borderRadius:8,fontSize:13,fontWeight:500,textDecoration:'none'}}>Demo</a>
       </nav>
 
       {/* HERO */}
@@ -99,7 +99,7 @@ export default function HomePage() {
         <h1 className="reveal reveal-d1" style={{fontSize:'clamp(50px,9vw,88px)',fontWeight:500,letterSpacing:'-0.05em',lineHeight:0.94,marginBottom:'1.5rem',color:'#fff'}}>Your Reviews.<br/>On <span style={{color:'#5B4FE8'}}>Autopilot.</span></h1>
         <p className="reveal reveal-d2" style={{fontSize:17,color:'rgba(255,255,255,0.65)',maxWidth:420,lineHeight:1.75,margin:'0 auto 2.5rem',fontWeight:400}}>Capture guest feedback instantly. Grow your Google rating. Give every guest a voice.</p>
         <div className="hero-btns reveal reveal-d3" style={{display:'flex',gap:12,justifyContent:'center',marginBottom:'5rem',flexWrap:'wrap'}}>
-          <a href="mailto:hello@rovu.com.au" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'14px 28px',borderRadius:10,fontSize:15,fontWeight:500,textDecoration:'none',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
+          <a href="/book-demo" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'14px 28px',borderRadius:10,fontSize:15,fontWeight:500,textDecoration:'none',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
           <a href="/venue/meza-kitchen-bar" className="btn-secondary" style={{background:'transparent',color:'rgba(255,255,255,0.75)',padding:'14px 28px',borderRadius:10,fontSize:15,textDecoration:'none',border:'0.5px solid rgba(255,255,255,0.2)',transition:'all 0.2s'}}>See a Demo →</a>
         </div>
         <div ref={statsRef} className="reveal reveal-d3" style={{display:'flex',gap:'4rem',justifyContent:'center',flexWrap:'wrap'}}>
@@ -312,7 +312,7 @@ export default function HomePage() {
               <div style={{display:'flex',flexDirection:'column',gap:6,marginBottom:'1.25rem'}}>
                 {t.f.map(f=><div key={f} style={{display:'flex',alignItems:'center',gap:7,fontSize:12,color:'rgba(255,255,255,0.65)'}}><div style={{width:3,height:3,borderRadius:'50%',background:'#5B4FE8',flexShrink:0}}></div>{f}</div>)}
               </div>
-              <a href="mailto:hello@rovu.com.au" style={{display:'block',padding:'10px',borderRadius:8,fontSize:12,fontWeight:500,textAlign:'center',background:t.hot?'#5B4FE8':'transparent',border:`0.5px solid ${t.hot?'#5B4FE8':'rgba(255,255,255,0.12)'}`,color:t.hot?'#fff':'rgba(255,255,255,0.6)',textDecoration:'none'}}>Book a Demo</a>
+              <a href="/book-demo" style={{display:'block',padding:'10px',borderRadius:8,fontSize:12,fontWeight:500,textAlign:'center',background:t.hot?'#5B4FE8':'transparent',border:`0.5px solid ${t.hot?'#5B4FE8':'rgba(255,255,255,0.12)'}`,color:t.hot?'#fff':'rgba(255,255,255,0.6)',textDecoration:'none'}}>Book a Demo</a>
             </div>
           ))}
         </div>
@@ -376,7 +376,7 @@ export default function HomePage() {
         <h2 className="reveal" style={{fontSize:'clamp(44px,8vw,72px)',fontWeight:500,letterSpacing:'-0.05em',color:'#fff',lineHeight:0.97,marginBottom:'1.25rem'}}>Not Everyone<br/>Gets <span style={{color:'#5B4FE8'}}>5 Stars.</span><br/>You Will.</h2>
         <p className="reveal" style={{fontSize:16,color:'rgba(255,255,255,0.6)',marginBottom:'2.5rem'}}>Join Australian venues building their reputation the right way.</p>
         <div className="hero-btns reveal" style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
-          <a href="mailto:hello@rovu.com.au" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'14px 28px',borderRadius:10,fontSize:15,fontWeight:500,textDecoration:'none',display:'block',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
+          <a href="/book-demo" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'14px 28px',borderRadius:10,fontSize:15,fontWeight:500,textDecoration:'none',display:'block',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
           <a href="/venue/meza-kitchen-bar" className="btn-secondary" style={{background:'transparent',color:'rgba(255,255,255,0.75)',padding:'14px 28px',borderRadius:10,fontSize:15,textDecoration:'none',border:'0.5px solid rgba(255,255,255,0.2)',display:'block',transition:'all 0.2s'}}>See a Demo →</a>
         </div>
       </section>
@@ -398,7 +398,7 @@ export default function HomePage() {
           <div style={{display:'flex',gap:'1.25rem',flexWrap:'wrap'}}>
             <a href="#" style={{fontSize:11,color:'rgba(255,255,255,0.4)',textDecoration:'none'}}>Privacy</a>
             <a href="#" style={{fontSize:11,color:'rgba(255,255,255,0.4)',textDecoration:'none'}}>Terms</a>
-            <a href="mailto:hello@rovu.com.au" style={{fontSize:11,color:'rgba(255,255,255,0.4)',textDecoration:'none'}}>hello@rovu.com.au</a>
+            <a href="/book-demo" style={{fontSize:11,color:'rgba(255,255,255,0.4)',textDecoration:'none'}}>hello@rovu.com.au</a>
           </div>
           <span style={{fontSize:11,color:'rgba(255,255,255,0.25)'}}>© 2026 Rovu. Built For Australian Hospitality.</span>
         </div>
