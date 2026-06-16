@@ -24,26 +24,46 @@ export default function BookDemoPage() {
     }
     setSubmitting(true)
     setError('')
-    const { error: err } = await supabase.from('enquiries').insert({
-      name, venue_name: venueName, email, phone, message
-    })
-    if (err) {
+
+    try {
+      const { error: dbErr } = await supabase.from('enquiries').insert({
+        name,
+        venue_name: venueName,
+        email,
+        phone: phone || null,
+        message: message || null,
+      })
+
+      if (dbErr) {
+        console.error('Supabase error:', dbErr)
+        setError(`Database error: ${dbErr.message}`)
+        setSubmitting(false)
+        return
+      }
+
+      try {
+        await fetch('/api/notify-enquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, venue_name: venueName, email, phone, message }),
+        })
+      } catch (emailErr) {
+        console.error('Email failed but form saved:', emailErr)
+      }
+
+      setSubmitting(false)
+      setDone(true)
+
+    } catch (err) {
+      console.error('Unexpected error:', err)
       setError('Something went wrong. Please try again.')
       setSubmitting(false)
-      return
     }
-    await fetch('/api/notify-enquiry', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, venue_name: venueName, email, phone, message })
-    })
-    setSubmitting(false)
-    setDone(true)
   }
 
   const labelStyle: React.CSSProperties = {
     fontSize: 11, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase',
-    letterSpacing: '0.08em', fontWeight: 500, display: 'block', marginBottom: 6
+    letterSpacing: '0.08em', fontWeight: 500, display: 'block', marginBottom: 6,
   }
 
   const inputStyle: React.CSSProperties = {
@@ -95,7 +115,7 @@ export default function BookDemoPage() {
         </div>
 
         {error && (
-          <div style={{background:'rgba(232,79,79,0.08)',border:'0.5px solid rgba(232,79,79,0.2)',borderRadius:10,padding:'12px 16px',fontSize:13,color:'#E84F4F',marginBottom:16}}>{error}</div>
+          <div style={{background:'rgba(232,79,79,0.08)',border:'0.5px solid rgba(232,79,79,0.2)',borderRadius:10,padding:'12px 16px',fontSize:13,color:'#E84F4F',marginBottom:16,lineHeight:1.6}}>{error}</div>
         )}
 
         <label style={labelStyle}>Your Name *</label>
@@ -111,7 +131,12 @@ export default function BookDemoPage() {
         <input style={inputStyle} type="tel" placeholder="0400 000 000" value={phone} onChange={e => setPhone(e.target.value)}/>
 
         <label style={labelStyle}>Anything Else?</label>
-        <textarea style={{...inputStyle,resize:'none',minHeight:100,lineHeight:1.6}} placeholder="Tell us about your venue, how many locations, what you're looking for..." value={message} onChange={e => setMessage(e.target.value)}/>
+        <textarea
+          style={{...inputStyle, resize:'none', minHeight:100, lineHeight:1.6}}
+          placeholder="Tell us about your venue, how many locations, what you're looking for..."
+          value={message}
+          onChange={e => setMessage(e.target.value)}
+        />
 
         <button
           onClick={handleSubmit}
