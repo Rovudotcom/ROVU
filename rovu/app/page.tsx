@@ -5,17 +5,14 @@ export default function HomePage() {
   const statsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Scroll reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') })
     }, { threshold: 0.1 })
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
-    // Counter animation
     const countObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          animateCount('c1', 3, 'x')
           animateCount('c2', 30, 's')
           countObserver.disconnect()
         }
@@ -50,6 +47,10 @@ export default function HomePage() {
         .nav-link:hover{color:rgba(255,255,255,0.9)!important}
         .btn-primary:hover{opacity:0.85}
         .btn-secondary:hover{border-color:rgba(255,255,255,0.4)!important;color:#fff!important}
+        .price-card{transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),border-color 0.3s,box-shadow 0.3s}
+        .price-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(91,79,232,0.15)}
+        .price-btn{transition:all 0.2s}
+        .price-btn:hover{opacity:0.85;transform:scale(1.02)}
         details summary::-webkit-details-marker{display:none}
         details[open] summary .faq-icon{transform:rotate(45deg);background:#5B4FE8!important;border-color:#5B4FE8!important;color:#fff!important}
         details[open] summary{color:#fff!important}
@@ -63,14 +64,18 @@ export default function HomePage() {
           .price-grid{grid-template-columns:1fr!important}
           .product-grid{grid-template-columns:1fr!important}
           .testi-grid{grid-template-columns:1fr!important}
-          .footer-inner{flex-direction:column!important;align-items:flex-start!important}
+          .footer-inner{flex-direction:column!important;align-items:flex-start!important;gap:1.5rem!important}
           .sticky-section{grid-template-columns:1fr!important}
           .sticky-phone{display:none!important}
           .proof-nums{grid-template-columns:1fr!important;max-width:100%!important}
+          .hero-stats-grid{gap:2rem!important}
+        }
+        @media(max-width:480px){
+          .hero-h{font-size:clamp(40px,12vw,56px)!important}
+          .finale-h{font-size:clamp(36px,11vw,52px)!important}
         }
       `}</style>
 
-      {/* NAV */}
       <nav style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'1rem 2.5rem',borderBottom:'0.5px solid rgba(255,255,255,0.07)',position:'sticky',top:0,background:'rgba(10,10,10,0.97)',backdropFilter:'blur(20px)',zIndex:100}}>
         <svg width="110" height="35" viewBox="0 0 160 52" fill="none">
           <defs><linearGradient id="nl" x1="12" y1="28" x2="30" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="rgba(255,255,255,0.5)"/><stop offset="100%" stopColor="#5B4FE8"/></linearGradient></defs>
@@ -92,27 +97,27 @@ export default function HomePage() {
         <a href="/book-demo" className="nav-mobile" style={{display:'none',background:'#5B4FE8',color:'#fff',padding:'7px 14px',borderRadius:8,fontSize:13,fontWeight:500,textDecoration:'none'}}>Demo</a>
       </nav>
 
-      {/* HERO */}
       <section style={{minHeight:'90vh',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',textAlign:'center',padding:'5rem 2rem',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'40%',left:'50%',transform:'translate(-50%,-50%)',width:700,height:700,borderRadius:'50%',background:'rgba(91,79,232,0.06)',pointerEvents:'none',filter:'blur(40px)'}}/>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.45)',textTransform:'uppercase',marginBottom:'2rem',fontWeight:500}}>Built For Australian Hospitality</div>
-        <h1 className="reveal reveal-d1" style={{fontSize:'clamp(50px,9vw,88px)',fontWeight:500,letterSpacing:'-0.05em',lineHeight:0.94,marginBottom:'1.5rem',color:'#fff'}}>Your Reviews.<br/>On <span style={{color:'#5B4FE8'}}>Autopilot.</span></h1>
-        <p className="reveal reveal-d2" style={{fontSize:17,color:'rgba(255,255,255,0.65)',maxWidth:420,lineHeight:1.75,margin:'0 auto 2.5rem',fontWeight:400}}>Capture guest feedback instantly. Grow your Google rating. Give every guest a voice.</p>
-        <div className="hero-btns reveal reveal-d3" style={{display:'flex',gap:12,justifyContent:'center',marginBottom:'5rem',flexWrap:'wrap'}}>
+        <h1 className="reveal reveal-d1 hero-h" style={{fontSize:'clamp(50px,9vw,88px)',fontWeight:500,letterSpacing:'-0.05em',lineHeight:0.94,marginBottom:'1.5rem',color:'#fff'}}>Your Reviews.<br/>On <span style={{color:'#5B4FE8'}}>Autopilot.</span></h1>
+        <p className="reveal reveal-d2" style={{fontSize:17,color:'rgba(255,255,255,0.65)',maxWidth:440,lineHeight:1.75,margin:'0 auto 2.5rem',fontWeight:400}}>Capture guest feedback instantly. Grow your public reputation. Give every guest a voice.</p>
+        <div className="hero-btns reveal reveal-d3" style={{display:'flex',gap:12,justifyContent:'center',marginBottom:'1.25rem',flexWrap:'wrap'}}>
           <a href="/book-demo" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'14px 28px',borderRadius:10,fontSize:15,fontWeight:500,textDecoration:'none',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
           <a href="/venue/meza-kitchen-bar" className="btn-secondary" style={{background:'transparent',color:'rgba(255,255,255,0.75)',padding:'14px 28px',borderRadius:10,fontSize:15,textDecoration:'none',border:'0.5px solid rgba(255,255,255,0.2)',transition:'all 0.2s'}}>See a Demo →</a>
         </div>
-        <div ref={statsRef} className="reveal reveal-d3" style={{display:'flex',gap:'4rem',justifyContent:'center',flexWrap:'wrap'}}>
+        <p className="reveal reveal-d3" style={{fontSize:12,color:'rgba(255,255,255,0.4)',marginBottom:'4rem'}}>No contracts. Setup in one afternoon. Built for Australian venues.</p>
+        <div ref={statsRef} className="reveal reveal-d3 hero-stats-grid" style={{display:'flex',gap:'4rem',justifyContent:'center',flexWrap:'wrap',alignItems:'flex-start'}}>
           <div style={{textAlign:'center'}}>
-            <div style={{fontSize:40,fontWeight:500,letterSpacing:'-0.04em',lineHeight:1,color:'#5B4FE8'}} id="c1">3x</div>
-            <div style={{fontSize:11,color:'rgba(255,255,255,0.55)',marginTop:7,letterSpacing:'0.08em',textTransform:'uppercase',fontWeight:500}}>More Reviews</div>
+            <div style={{fontSize:34,fontWeight:500,letterSpacing:'-0.04em',lineHeight:1,color:'#5B4FE8'}}>More</div>
+            <div style={{fontSize:11,color:'rgba(255,255,255,0.55)',marginTop:7,letterSpacing:'0.08em',textTransform:'uppercase',fontWeight:500}}>Guest Feedback</div>
           </div>
           <div style={{textAlign:'center'}}>
             <div style={{fontSize:40,fontWeight:500,letterSpacing:'-0.04em',lineHeight:1,color:'#5B4FE8'}} id="c2">30s</div>
             <div style={{fontSize:11,color:'rgba(255,255,255,0.55)',marginTop:7,letterSpacing:'0.08em',textTransform:'uppercase',fontWeight:500}}>Per Review</div>
           </div>
           <div style={{textAlign:'center'}}>
-            <div style={{fontSize:28,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1,color:'#5B4FE8'}}>Every Guest</div>
+            <div style={{fontSize:34,fontWeight:500,letterSpacing:'-0.04em',lineHeight:1,color:'#5B4FE8'}}>Every Guest</div>
             <div style={{fontSize:11,color:'rgba(255,255,255,0.55)',marginTop:7,letterSpacing:'0.08em',textTransform:'uppercase',fontWeight:500}}>Heard</div>
           </div>
         </div>
@@ -120,17 +125,15 @@ export default function HomePage() {
 
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
-      {/* STORY */}
       <section className="reveal" style={{padding:'7rem 2rem',maxWidth:720,margin:'0 auto',textAlign:'center'}}>
         <div style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',textTransform:'uppercase',marginBottom:'1.75rem',fontWeight:500}}>Why Rovu</div>
         <h2 style={{fontSize:'clamp(32px,5vw,50px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff',marginBottom:'1.5rem'}}>Most Happy Guests<br/>Never Say A Word.<br/><span style={{color:'#5B4FE8'}}>Yours Will.</span></h2>
         <p style={{fontSize:16,color:'rgba(255,255,255,0.65)',lineHeight:1.85,marginBottom:'1rem'}}>You cook great food. Your team works hard. Your guests leave happy. And then — <strong style={{color:'#fff',fontWeight:500}}>silence.</strong></p>
-        <p style={{fontSize:16,color:'rgba(255,255,255,0.65)',lineHeight:1.85}}>Rovu gives every guest a simple way to share feedback. Happy guests get a direct path to Google. Guests who had a poor experience are heard privately — so you can recover the relationship before it escalates.</p>
+        <p style={{fontSize:16,color:'rgba(255,255,255,0.65)',lineHeight:1.85}}>Every guest can leave feedback. Guests can also continue to public review platforms — giving you a direct line to your reputation, and a chance to make things right when something goes wrong.</p>
       </section>
 
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
-      {/* PRODUCT SHOWCASE — CRED style */}
       <section style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
         <div className="reveal" style={{textAlign:'center',marginBottom:'3rem'}}>
           <div style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>The Product</div>
@@ -232,7 +235,6 @@ export default function HomePage() {
 
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
-      {/* HOW IT WORKS */}
       <section id="how" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>How It Works</div>
         <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff',marginBottom:'2.5rem'}}>Scan. Rate. <span style={{color:'#5B4FE8'}}>Grow.</span></h2>
@@ -254,7 +256,6 @@ export default function HomePage() {
 
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
-      {/* FEATURES */}
       <section id="features" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>Features</div>
         <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>Everything Your Venue <span style={{color:'#5B4FE8'}}>Needs.</span></h2>
@@ -275,26 +276,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROOF */}
       <section style={{padding:'5.5rem 2rem',textAlign:'center',background:'linear-gradient(180deg,#0a0a0a 0%,#0d0b1a 50%,#0a0a0a 100%)'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:'1.5rem',fontWeight:500}}>The Numbers</div>
         <h2 className="reveal" style={{fontSize:'clamp(32px,6vw,52px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.0,color:'#fff',marginBottom:'0.75rem'}}>The Proof<br/><span style={{color:'#5B4FE8'}}>Writes Itself.</span></h2>
         <p className="reveal" style={{fontSize:15,color:'rgba(255,255,255,0.6)',marginBottom:'3.5rem'}}>What happens when every guest has a simple way to share feedback.</p>
         <div className="proof-nums reveal" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10,maxWidth:580,margin:'0 auto'}}>
           {[
-            {v:'3x',l:'More Google Reviews',bg:'rgba(91,79,232,0.08)',border:'rgba(91,79,232,0.2)',col:'#9b91f5'},
+            {v:'More',l:'Guest Feedback',bg:'rgba(91,79,232,0.08)',border:'rgba(91,79,232,0.2)',col:'#9b91f5'},
             {v:'30s',l:'Per Feedback Submission',bg:'rgba(232,147,79,0.08)',border:'rgba(232,147,79,0.2)',col:'#E8934F'},
             {v:'100%',l:'Of Feedback Captured',bg:'rgba(29,158,117,0.08)',border:'rgba(29,158,117,0.2)',col:'#1D9E75'},
           ].map(p=>(
             <div key={p.l} style={{background:p.bg,border:`0.5px solid ${p.border}`,borderRadius:14,padding:'2rem 1rem',textAlign:'center'}}>
-              <div style={{fontSize:42,fontWeight:500,letterSpacing:'-0.04em',color:p.col,lineHeight:1}}>{p.v}</div>
+              <div style={{fontSize:p.v==='More'?34:42,fontWeight:500,letterSpacing:'-0.04em',color:p.col,lineHeight:1}}>{p.v}</div>
               <div style={{fontSize:10,color:'rgba(255,255,255,0.55)',marginTop:8,letterSpacing:'0.08em',textTransform:'uppercase',fontWeight:500}}>{p.l}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* PRICING */}
       <section id="pricing" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>Pricing</div>
         <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>Honest Pricing.<br/><span style={{color:'#5B4FE8'}}>No Surprises.</span></h2>
@@ -304,7 +303,7 @@ export default function HomePage() {
             {n:'Growth',p:'A$99',d:'Serious about your reputation',f:['Everything in Starter','Private feedback recovery','Unlimited staff profiles','All review platforms','Weekly digest email'],hot:true},
             {n:'Chain',p:'A$249',d:'Multiple locations',f:['Up to 5 locations','Multi-venue dashboard','White-label branding','Priority support'],hot:false},
           ].map(t=>(
-            <div key={t.n} className="reveal" style={{background:t.hot?'#0c0a18':'#0f0f0f',border:`0.5px solid ${t.hot?'rgba(91,79,232,0.5)':'rgba(255,255,255,0.08)'}`,borderRadius:14,padding:'1.5rem'}}>
+            <div key={t.n} className="reveal price-card" style={{background:t.hot?'#0c0a18':'#0f0f0f',border:`0.5px solid ${t.hot?'rgba(91,79,232,0.5)':'rgba(255,255,255,0.08)'}`,borderRadius:14,padding:'1.5rem',cursor:'default'}}>
               {t.hot&&<div style={{fontSize:9,fontWeight:500,background:'rgba(91,79,232,0.18)',color:'#9b91f5',padding:'3px 9px',borderRadius:20,display:'inline-block',marginBottom:10,letterSpacing:'0.08em',textTransform:'uppercase'}}>Most Popular</div>}
               <div style={{fontSize:10,color:'rgba(255,255,255,0.4)',marginBottom:8,letterSpacing:'0.12em',textTransform:'uppercase',fontWeight:500}}>{t.n}</div>
               <div style={{fontSize:34,fontWeight:500,color:'#fff',letterSpacing:'-0.04em',lineHeight:1}}>{t.p}<span style={{fontSize:12,color:'rgba(255,255,255,0.4)',fontWeight:400}}>/mo</span></div>
@@ -312,41 +311,22 @@ export default function HomePage() {
               <div style={{display:'flex',flexDirection:'column',gap:6,marginBottom:'1.25rem'}}>
                 {t.f.map(f=><div key={f} style={{display:'flex',alignItems:'center',gap:7,fontSize:12,color:'rgba(255,255,255,0.65)'}}><div style={{width:3,height:3,borderRadius:'50%',background:'#5B4FE8',flexShrink:0}}></div>{f}</div>)}
               </div>
-              <a href="/book-demo" style={{display:'block',padding:'10px',borderRadius:8,fontSize:12,fontWeight:500,textAlign:'center',background:t.hot?'#5B4FE8':'transparent',border:`0.5px solid ${t.hot?'#5B4FE8':'rgba(255,255,255,0.12)'}`,color:t.hot?'#fff':'rgba(255,255,255,0.6)',textDecoration:'none'}}>Book a Demo</a>
+              <a href="/book-demo" className="price-btn" style={{display:'block',padding:'10px',borderRadius:8,fontSize:12,fontWeight:500,textAlign:'center',background:t.hot?'#5B4FE8':'transparent',border:`0.5px solid ${t.hot?'#5B4FE8':'rgba(255,255,255,0.12)'}`,color:t.hot?'#fff':'rgba(255,255,255,0.6)',textDecoration:'none'}}>Book a 10-Min Demo</a>
             </div>
           ))}
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <section style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
-        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:'1.5rem',fontWeight:500}}>From The Venues</div>
-        <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,40px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>What Owners <span style={{color:'#5B4FE8'}}>Actually Say.</span></h2>
-        <div className="testi-grid" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:12}}>
-          {[
-            {q:'We went from 12 Google reviews a month to 47. Knowing every unhappy guest is heard privately changed how we operate.',n:'James Chen',r:'Owner, The Harbour Table — Sydney',i:'JC',c:'#5B4FE8'},
-            {q:'My staff actually compete to get mentioned in reviews now. The leaderboard changed the whole culture of the restaurant.',n:'Sarah Mitchell',r:'Manager, Circa Bistro — Melbourne',i:'SM',c:'#1D9E75'},
-            {q:'Set up in an afternoon. Our Google rating went from 4.1 to 4.7 in six weeks. Wish I found this two years ago.',n:'Raj Patel',r:'Owner, Spice Route — Brisbane',i:'RP',c:'#E8934F'},
-          ].map(t=>(
-            <div key={t.n} className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.08)',borderRadius:16,padding:'1.5rem'}}>
-              <div style={{fontSize:30,color:'#5B4FE8',lineHeight:1,marginBottom:10,fontFamily:'Georgia,serif'}}>"</div>
-              <div style={{fontSize:14,color:'rgba(255,255,255,0.75)',lineHeight:1.8,marginBottom:'1.25rem',fontStyle:'italic'}}>{t.q}</div>
-              <div style={{display:'flex',alignItems:'center',gap:10}}>
-                <div style={{width:34,height:34,borderRadius:'50%',background:t.c,display:'flex',alignItems:'center',justifyContent:'center',fontSize:11,fontWeight:500,color:'#fff',flexShrink:0}}>{t.i}</div>
-                <div>
-                  <div style={{fontSize:13,fontWeight:500,color:'#fff'}}>{t.n}</div>
-                  <div style={{fontSize:11,color:'rgba(255,255,255,0.5)'}}>{t.r}</div>
-                  <div style={{color:'#f59e0b',fontSize:11,marginTop:2}}>★★★★★</div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:'1.5rem',fontWeight:500}}>Early Days</div>
+        <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,40px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'1.5rem',lineHeight:1.1}}>Built For Real Venues.<br/><span style={{color:'#5B4FE8'}}>Pilot Results Coming Soon.</span></h2>
+        <div className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.08)',borderRadius:16,padding:'2.5rem',textAlign:'center'}}>
+          <p style={{fontSize:15,color:'rgba(255,255,255,0.65)',lineHeight:1.8,maxWidth:520,margin:'0 auto'}}>We're working directly with Australian hospitality venues to refine Rovu before wider rollout. Real results from real pilot venues will be shared here soon.</p>
         </div>
       </section>
 
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
-      {/* FAQ */}
       <section style={{padding:'5rem 2rem',maxWidth:700,margin:'0 auto'}}>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:'1.5rem',fontWeight:500}}>Honest Answers</div>
         <h2 className="reveal" style={{fontSize:'clamp(26px,4vw,38px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2rem',lineHeight:1.1}}>Things People Ask<br/>Before Signing Up.</h2>
@@ -369,38 +349,40 @@ export default function HomePage() {
         ))}
       </section>
 
-      {/* FINALE */}
       <section style={{textAlign:'center',padding:'8rem 2rem 7rem',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',bottom:-80,left:'50%',transform:'translateX(-50%)',width:500,height:300,background:'rgba(91,79,232,0.06)',borderRadius:'50%',pointerEvents:'none',filter:'blur(40px)'}}/>
         <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',textTransform:'uppercase',marginBottom:'2rem',fontWeight:500}}>Ready When You Are</div>
-        <h2 className="reveal" style={{fontSize:'clamp(44px,8vw,72px)',fontWeight:500,letterSpacing:'-0.05em',color:'#fff',lineHeight:0.97,marginBottom:'1.25rem'}}>Not Everyone<br/>Gets <span style={{color:'#5B4FE8'}}>5 Stars.</span><br/>You Will.</h2>
-        <p className="reveal" style={{fontSize:16,color:'rgba(255,255,255,0.6)',marginBottom:'2.5rem'}}>Join Australian venues building their reputation the right way.</p>
+        <h2 className="reveal finale-h" style={{fontSize:'clamp(40px,7vw,64px)',fontWeight:500,letterSpacing:'-0.05em',color:'#fff',lineHeight:1.05,marginBottom:'1.25rem'}}>Turn Every Visit<br/>Into <span style={{color:'#5B4FE8'}}>Useful Feedback.</span></h2>
+        <p className="reveal" style={{fontSize:16,color:'rgba(255,255,255,0.6)',marginBottom:'1rem'}}>Join Australian venues building their reputation the right way.</p>
+        <p className="reveal" style={{fontSize:12,color:'rgba(255,255,255,0.4)',marginBottom:'2.5rem'}}>No contracts. Setup in one afternoon. Built for Australian venues.</p>
         <div className="hero-btns reveal" style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
           <a href="/book-demo" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'14px 28px',borderRadius:10,fontSize:15,fontWeight:500,textDecoration:'none',display:'block',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
           <a href="/venue/meza-kitchen-bar" className="btn-secondary" style={{background:'transparent',color:'rgba(255,255,255,0.75)',padding:'14px 28px',borderRadius:10,fontSize:15,textDecoration:'none',border:'0.5px solid rgba(255,255,255,0.2)',display:'block',transition:'all 0.2s'}}>See a Demo →</a>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer style={{borderTop:'0.5px solid rgba(255,255,255,0.07)',padding:'1.75rem 2.5rem'}}>
-        <div className="footer-inner" style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'1rem',maxWidth:1100,margin:'0 auto'}}>
-          <svg width="100" height="32" viewBox="0 0 160 52" fill="none">
-            <defs><linearGradient id="fl2" x1="12" y1="28" x2="30" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="rgba(255,255,255,0.5)"/><stop offset="100%" stopColor="#5B4FE8"/></linearGradient></defs>
-            <path d="M12 44 L12 10" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-            <path d="M12 10 Q30 10 30 19 Q30 28 12 28" stroke="#fff" strokeWidth="3" strokeLinecap="round" fill="none"/>
-            <path d="M12 28 L30 44" stroke="url(#fl2)" strokeWidth="3" strokeLinecap="round"/>
-            <ellipse cx="52" cy="27" rx="11" ry="17" stroke="#fff" strokeWidth="3" fill="none"/>
-            <path d="M80 10 L91 44" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-            <path d="M91 44 L102 10" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-            <path d="M117 10 L117 34 Q117 44 127 44 Q137 44 137 34 L137 10" stroke="#fff" strokeWidth="3" strokeLinecap="round" fill="none"/>
-            <circle cx="151" cy="44" r="4" fill="#5B4FE8"/>
-          </svg>
-          <div style={{display:'flex',gap:'1.25rem',flexWrap:'wrap'}}>
-            <a href="#" style={{fontSize:11,color:'rgba(255,255,255,0.4)',textDecoration:'none'}}>Privacy</a>
-            <a href="#" style={{fontSize:11,color:'rgba(255,255,255,0.4)',textDecoration:'none'}}>Terms</a>
-            <a href="/book-demo" style={{fontSize:11,color:'rgba(255,255,255,0.4)',textDecoration:'none'}}>hello@rovu.com.au</a>
+      <footer style={{borderTop:'0.5px solid rgba(255,255,255,0.07)',padding:'2rem 2.5rem'}}>
+        <div className="footer-inner" style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'1.5rem',maxWidth:1100,margin:'0 auto'}}>
+          <div>
+            <svg width="100" height="32" viewBox="0 0 160 52" fill="none" style={{marginBottom:8}}>
+              <defs><linearGradient id="fl2" x1="12" y1="28" x2="30" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="rgba(255,255,255,0.5)"/><stop offset="100%" stopColor="#5B4FE8"/></linearGradient></defs>
+              <path d="M12 44 L12 10" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M12 10 Q30 10 30 19 Q30 28 12 28" stroke="#fff" strokeWidth="3" strokeLinecap="round" fill="none"/>
+              <path d="M12 28 L30 44" stroke="url(#fl2)" strokeWidth="3" strokeLinecap="round"/>
+              <ellipse cx="52" cy="27" rx="11" ry="17" stroke="#fff" strokeWidth="3" fill="none"/>
+              <path d="M80 10 L91 44" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M91 44 L102 10" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M117 10 L117 34 Q117 44 127 44 Q137 44 137 34 L137 10" stroke="#fff" strokeWidth="3" strokeLinecap="round" fill="none"/>
+              <circle cx="151" cy="44" r="4" fill="#5B4FE8"/>
+            </svg>
+            <div style={{fontSize:11,color:'rgba(255,255,255,0.4)',letterSpacing:'0.01em'}}>Built For Australian Hospitality Operators.</div>
           </div>
-          <span style={{fontSize:11,color:'rgba(255,255,255,0.25)'}}>© 2026 Rovu. Built For Australian Hospitality.</span>
+          <div style={{display:'flex',gap:'1.5rem',flexWrap:'wrap'}}>
+            <a href="#" style={{fontSize:12,color:'rgba(255,255,255,0.5)',textDecoration:'none'}}>Privacy Policy</a>
+            <a href="#" style={{fontSize:12,color:'rgba(255,255,255,0.5)',textDecoration:'none'}}>Terms</a>
+            <a href="mailto:hello@rovu.com.au" style={{fontSize:12,color:'rgba(255,255,255,0.5)',textDecoration:'none'}}>Contact</a>
+          </div>
+          <span style={{fontSize:11,color:'rgba(255,255,255,0.3)'}}>© 2026 Rovu. Built In Australia.</span>
         </div>
       </footer>
 
