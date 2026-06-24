@@ -8,11 +8,11 @@ const supabase = createClient(
 )
 
 const CHIPS: Record<number, string[]> = {
-  5: ['Amazing Food','Friendly Staff','Beautiful Atmosphere','Exceptional Service','Great Cocktails','Perfect For A Date','Will Definitely Return','Best Meal In Ages','Loved Every Dish','Quick & Attentive'],
-  4: ['Great Food','Lovely Atmosphere','Good Service','Solid Experience','Worth A Visit','Good Value','Attentive Staff','Nice Cocktail Menu'],
-  3: ['Decent Food','Average Service','Ok Atmosphere','A Bit Slow','Nothing Special','Could Be Better'],
-  2: ['Disappointing Food','Slow Service','Too Noisy','Overpriced','Felt Rushed','Cold Food'],
-  1: ['Poor Quality Food','Terrible Service','Very Disappointing','Would Not Return','Rude Staff','Long Wait Times'],
+  5: ['Amazing Food','Friendly Staff','Beautiful Atmosphere','Exceptional Service','Great Cocktails','Perfect For A Date','Will Definitely Return','Best Meal In Ages','Loved Every Dish','Quick & Attentive','Generous Portions','Great Value','Perfect For Groups','Fresh Ingredients','Cosy Setting','Great Music','Impeccable Presentation','Made Us Feel Welcome'],
+  4: ['Great Food','Lovely Atmosphere','Good Service','Solid Experience','Worth A Visit','Good Value','Attentive Staff','Nice Cocktail Menu','Tasty Dishes','Comfortable Seating','Decent Wait Time','Nice Ambience','Good Portion Sizes','Friendly Team'],
+  3: ['Decent Food','Average Service','Ok Atmosphere','A Bit Slow','Nothing Special','Could Be Better','Average Wait','Mixed Experience','Some Highlights','Room For Improvement'],
+  2: ['Disappointing Food','Slow Service','Too Noisy','Overpriced','Felt Rushed','Cold Food','Long Wait','Small Portions','Inattentive Staff','Below Expectations'],
+  1: ['Poor Quality Food','Terrible Service','Very Disappointing','Would Not Return','Rude Staff','Long Wait Times','Order Was Wrong','Overpriced For Quality','Unclean Tables','Felt Ignored'],
 }
 
 const LABELS: Record<number, string> = {
@@ -23,23 +23,114 @@ const LABELS: Record<number, string> = {
   1: 'Terrible — very bad experience',
 }
 
-const OPENERS: Record<number, string> = {
-  5: "We had an absolutely wonderful evening — one of the best dining experiences we've had in a long time. ",
-  4: "We had a really enjoyable dinner and will definitely be back. ",
-  3: "It was a decent experience overall, though a few areas could be improved. ",
-  2: "Unfortunately our visit was quite disappointing. We had high hopes but it didn't quite deliver. ",
-  1: "We had a very poor experience and unfortunately cannot recommend it based on our visit. ",
+const OPENERS: Record<number, string[]> = {
+  5: [
+    "We had an absolutely wonderful evening — one of the best dining experiences we've had in a long time. ",
+    "What a fantastic visit! Everything about tonight exceeded our expectations. ",
+    "We honestly can't stop talking about how good this place is. ",
+    "From the moment we sat down, it was clear this was going to be a great night. ",
+    "Easily one of the highlights of our week — we had an incredible time here. ",
+  ],
+  4: [
+    "We had a really enjoyable dinner and will definitely be back. ",
+    "Overall a great experience — exactly what we were hoping for. ",
+    "Had a lovely time here and left feeling very satisfied. ",
+    "A solid night out with good food and good company. ",
+    "We thoroughly enjoyed our visit and would happily come again. ",
+  ],
+  3: [
+    "It was a decent experience overall, though a few areas could be improved. ",
+    "Our visit was fine, nothing extraordinary but nothing terrible either. ",
+    "A fairly average experience — some good moments, some not so good. ",
+    "It was an okay visit, though we expected a little more. ",
+  ],
+  2: [
+    "Unfortunately our visit was quite disappointing. We had high hopes but it didn't quite deliver. ",
+    "We left feeling a bit let down by the experience tonight. ",
+    "Sadly this visit didn't go as well as we'd hoped. ",
+    "We were looking forward to this but it fell short in a few areas. ",
+  ],
+  1: [
+    "We had a very poor experience and unfortunately cannot recommend it based on our visit. ",
+    "Tonight was a real disappointment from start to finish. ",
+    "We're sorry to say this was one of our worst dining experiences recently. ",
+    "Unfortunately we cannot recommend this venue based on tonight's visit. ",
+  ],
 }
 
-const CLOSERS: Record<number, string> = {
-  5: " The whole team clearly takes great pride in what they do. Highly recommend — we will definitely be back very soon!",
-  4: " Overall a very solid restaurant and we would happily recommend it to friends and family.",
-  3: " Worth a visit if you are nearby, but we would not go out of our way without some improvements.",
-  2: " Hopefully management takes this feedback on board — with some changes this place has real potential.",
-  1: " We will not be returning and would encourage management to review their standards urgently.",
+const CLOSERS: Record<number, string[]> = {
+  5: [
+    " The whole team clearly takes great pride in what they do. Highly recommend — we will definitely be back very soon!",
+    " Can't wait to come back. This is exactly the kind of place we love supporting.",
+    " Five stars without hesitation. A genuinely brilliant experience all round.",
+    " We'll be recommending this to everyone we know.",
+  ],
+  4: [
+    " Overall a very solid restaurant and we would happily recommend it to friends and family.",
+    " A great spot — we'll definitely be returning.",
+    " Would recommend this place without hesitation.",
+    " A genuinely good night out, can't complain.",
+  ],
+  3: [
+    " Worth a visit if you are nearby, but we would not go out of our way without some improvements.",
+    " It's an okay option but there are areas that need attention.",
+    " Not bad, but not quite what we expected either.",
+    " Might give it another shot in future, but it didn't blow us away.",
+  ],
+  2: [
+    " Hopefully management takes this feedback on board — with some changes this place has real potential.",
+    " We hope this feedback helps improve things going forward.",
+    " There's clearly potential here, but tonight wasn't it.",
+    " We'd consider returning if these issues were addressed.",
+  ],
+  1: [
+    " We will not be returning and would encourage management to review their standards urgently.",
+    " This needs serious attention before we'd consider coming back.",
+    " A disappointing experience that we hope gets addressed soon.",
+    " We won't be returning unless real changes are made.",
+  ],
 }
 
 const STAFF_COLORS = ['#5B4FE8','#1D9E75','#E8934F','#E84F7E','#4F9BE8','#9E4FE8']
+
+function pick<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
+function buildHumanReview(rating: number, chips: string[], staffName: string | null): string {
+  const opener = pick(OPENERS[rating])
+  const closer = pick(CLOSERS[rating])
+
+  let middle = ''
+  if (chips.length === 0) {
+    middle = 'The overall experience was memorable.'
+  } else if (chips.length === 1) {
+    middle = `One thing that stood out: ${chips[0].toLowerCase()}.`
+  } else if (chips.length === 2) {
+    middle = `What stood out most was the ${chips[0].toLowerCase()} and ${chips[1].toLowerCase()}.`
+  } else {
+    const shuffled = [...chips].sort(() => Math.random() - 0.5)
+    const last = shuffled[shuffled.length - 1]
+    const rest = shuffled.slice(0, -1).join(', ').toLowerCase()
+    middle = pick([
+      `A few things really stood out: ${rest}, and ${last.toLowerCase()}.`,
+      `Highlights included ${rest}, as well as ${last.toLowerCase()}.`,
+      `What we appreciated most was the ${rest}, along with ${last.toLowerCase()}.`,
+    ])
+  }
+
+  let staffLine = ''
+  if (staffName) {
+    staffLine = ' ' + pick([
+      `Special mention to ${staffName} who was absolutely brilliant and really made the visit special.`,
+      `A particular shoutout to ${staffName} for going above and beyond.`,
+      `${staffName} in particular deserves a mention — fantastic service from start to finish.`,
+      `We have to mention ${staffName}, who made the whole experience even better.`,
+    ])
+  }
+
+  return opener + middle + staffLine + closer
+}
 
 type Screen = 'rate' | 'chips' | 'staff' | 'review' | 'thanks' | 'google'
 type StaffMember = { id: string; name: string }
@@ -77,13 +168,8 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
   }
 
   function buildReview() {
-    const mid = selChips.length > 0
-      ? `Highlights included: ${selChips.join(', ')}.`
-      : 'The overall experience was memorable.'
-    const staffLine = selStaff
-      ? ` A special mention to ${selStaff.name} who was absolutely brilliant and really made the visit special.`
-      : ''
-    setReviewText(OPENERS[rating] + mid + staffLine + CLOSERS[rating])
+    const text = buildHumanReview(rating, selChips, selStaff?.name || null)
+    setReviewText(text)
     setScreen('review')
   }
 
@@ -104,18 +190,22 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
     }).select('*, staff(name)').single()
 
     if (isPrivate && venue.owner_email) {
-      await fetch('/api/notify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          venueName: venue.name,
-          ownerEmail: venue.owner_email,
-          rating,
-          comment: finalText,
-          customerName,
-          staffName: feedbackData?.staff?.name || null,
+      try {
+        await fetch('/api/notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            venueName: venue.name,
+            ownerEmail: venue.owner_email,
+            rating,
+            comment: finalText,
+            customerName,
+            staffName: feedbackData?.staff?.name || null,
+          })
         })
-      })
+      } catch (e) {
+        console.error('Email notify failed:', e)
+      }
     }
 
     setSubmitting(false)
@@ -160,7 +250,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
     <div style={{minHeight:'100vh',background:'#0a0a0a',color:'#fff',fontFamily:'Inter,system-ui,sans-serif',WebkitFontSmoothing:'antialiased'}}>
       <div style={{maxWidth:480,margin:'0 auto',minHeight:'100vh',display:'flex',flexDirection:'column'}}>
 
-        {/* Header */}
         <div style={{padding:'3rem 1.5rem 1.25rem',borderBottom:'0.5px solid rgba(255,255,255,0.07)',display:'flex',alignItems:'center',justifyContent:'space-between',background:'#0a0a0a',position:'sticky',top:0,zIndex:10}}>
           <div style={{display:'flex',alignItems:'center',gap:10}}>
             <div style={{width:32,height:32,background:'#5B4FE8',borderRadius:8,display:'flex',alignItems:'center',justifyContent:'center',fontSize:14,fontWeight:600,color:'#fff'}}>R</div>
@@ -172,7 +261,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
           <a href="/" style={{fontSize:11,color:'rgba(255,255,255,0.4)',border:'0.5px solid rgba(255,255,255,0.12)',padding:'5px 11px',borderRadius:7,textDecoration:'none'}}>← Rovu</a>
         </div>
 
-        {/* Progress */}
         {showProgress && (
           <div style={{display:'flex',gap:4,padding:'14px 1.5rem 0'}}>
             {['rate','chips','staff','review'].map((s,i) => (
@@ -181,15 +269,12 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        {/* Back */}
         {showBack && (
           <button onClick={goBack} style={{background:'none',border:'none',color:'rgba(255,255,255,0.4)',fontSize:13,padding:'10px 1.5rem 0',textAlign:'left',cursor:'pointer',fontFamily:'Inter,system-ui'}}>← Back</button>
         )}
 
-        {/* Screens */}
         <div style={{flex:1,padding:'1.5rem 1.5rem 3rem',overflowY:'auto'}}>
 
-          {/* RATE */}
           {screen === 'rate' && (
             <div>
               <div style={{fontSize:10,letterSpacing:'0.2em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:8,fontWeight:500}}>Step 1 of 4</div>
@@ -212,7 +297,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          {/* CHIPS */}
           {screen === 'chips' && (
             <div>
               <div style={{fontSize:10,letterSpacing:'0.2em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:8,fontWeight:500}}>Step 2 of 4</div>
@@ -242,7 +326,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          {/* STAFF */}
           {screen === 'staff' && (
             <div>
               <div style={{fontSize:10,letterSpacing:'0.2em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:8,fontWeight:500}}>Step 3 of 4</div>
@@ -273,7 +356,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          {/* REVIEW */}
           {screen === 'review' && (
             <div>
               <div style={{fontSize:10,letterSpacing:'0.2em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:8,fontWeight:500}}>Step 4 of 4</div>
@@ -323,7 +405,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          {/* THANKS — private */}
           {screen === 'thanks' && (
             <div style={{textAlign:'center',paddingTop:'3rem'}}>
               <div style={{fontSize:52,marginBottom:16}}>🙏</div>
@@ -334,7 +415,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
             </div>
           )}
 
-          {/* GOOGLE — positive */}
           {screen === 'google' && (
             <div style={{textAlign:'center',paddingTop:'3rem'}}>
               <div style={{fontSize:52,marginBottom:16}}>⭐</div>
@@ -353,7 +433,6 @@ export default function VenuePage({ params }: { params: { slug: string } }) {
 
         </div>
 
-        {/* Footer */}
         <div style={{padding:'1rem 1.5rem',borderTop:'0.5px solid rgba(255,255,255,0.06)',display:'flex',alignItems:'center',justifyContent:'center',gap:6}}>
           <div style={{width:14,height:14,background:'#5B4FE8',borderRadius:3,display:'flex',alignItems:'center',justifyContent:'center',fontSize:8,fontWeight:600,color:'#fff'}}>R</div>
           <span style={{fontSize:10,color:'rgba(255,255,255,0.25)',letterSpacing:'0.06em',textTransform:'uppercase'}}>Powered By Rovu</span>
