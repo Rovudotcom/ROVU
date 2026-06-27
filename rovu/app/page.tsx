@@ -132,90 +132,121 @@ export default function HomePage() {
         <p style={{fontSize:16,color:'rgba(255,255,255,0.65)',lineHeight:1.85}}>Every guest can leave feedback. Guests can also continue to public review platforms — giving you a direct line to your reputation, and a chance to make things right when something goes wrong.</p>
       </section>
 
-      <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
       <section style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
-        <div className="reveal" style={{textAlign:'center',marginBottom:'3rem'}}>
+        <div className="reveal" style={{textAlign:'center',marginBottom:'3.5rem'}}>
           <div style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>The Product</div>
           <h2 style={{fontSize:'clamp(28px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff'}}>Three Moments.<br/><span style={{color:'#5B4FE8'}}>One Seamless Flow.</span></h2>
         </div>
-        <div className="product-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10}}>
-          {[
-            {bg:'#0f0a1a',border:'rgba(91,79,232,0.25)',glow:'rgba(91,79,232,0.25)',tag:'Table Card',tagCol:'rgba(155,145,245,0.9)',tagBg:'rgba(91,79,232,0.12)',h:'Scan & Review.\nAny Table.',accent:'#5B4FE8',big:'QR'},
-            {bg:'#0a0f0a',border:'rgba(29,158,117,0.2)',glow:'rgba(29,158,117,0.22)',tag:'AI Review Flow',tagCol:'rgba(29,158,117,0.9)',tagBg:'rgba(29,158,117,0.1)',h:'30 Seconds.\nGenuine Review.',accent:'#1D9E75',big:'30s'},
-            {bg:'#0f0f0a',border:'rgba(232,147,79,0.2)',glow:'rgba(232,147,79,0.22)',tag:'Owner Dashboard',tagCol:'rgba(232,147,79,0.9)',tagBg:'rgba(232,147,79,0.1)',h:'Your Ratings.\nIn Real Time.',accent:'#E8934F',big:'4.8'},
-          ].map((c,i)=>(
-            <div key={i} className="product-card reveal" style={{background:c.bg,border:`0.5px solid ${c.border}`,borderRadius:20,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative'}}>
-              <div className="card-glow" style={{position:'absolute',bottom:-80,left:'50%',transform:'translateX(-50%)',width:260,height:260,background:c.glow,borderRadius:'50%',filter:'blur(60px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-              <div style={{padding:'1.75rem',position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
-                <div style={{display:'inline-flex',alignItems:'center',background:c.tagBg,borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
-                  <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:c.tagCol}}>{c.tag}</span>
-                </div>
-                <div style={{fontSize:22,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.2,color:'#fff',marginBottom:'2rem',whiteSpace:'pre-line'}}>{c.h}</div>
-                <div style={{flex:1,display:'flex',alignItems:'flex-end',justifyContent:'flex-end'}}>
-                  <div style={{fontSize:64,fontWeight:600,letterSpacing:'-0.04em',color:c.accent,lineHeight:1,opacity:0.9}}>{c.big}</div>
-                </div>
+        <div className="product-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:14}}>
+
+          <div className="product-card reveal" style={{background:'#0f0a1a',border:'0.5px solid rgba(91,79,232,0.22)',borderRadius:24,overflow:'hidden',minHeight:440,display:'flex',flexDirection:'column',position:'relative'}}>
+            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(91,79,232,0.22)',borderRadius:'50%',filter:'blur(70px)',opacity:0.45,transition:'opacity 0.3s',pointerEvents:'none'}}/>
+            <div style={{padding:'2rem 2rem 0',position:'relative',zIndex:1}}>
+              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(91,79,232,0.12)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem'}}>
+                <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(155,145,245,0.9)'}}>Table Card</span>
               </div>
+              <div style={{fontSize:23,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff'}}>Scan & Review.<br/>Any Table.</div>
             </div>
-          ))}
+            <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',padding:'1.5rem',position:'relative',zIndex:1}}>
+              <svg width="180" height="220" viewBox="0 0 180 220" fill="none">
+                <rect x="10" y="5" width="160" height="210" rx="18" fill="#15102200" stroke="rgba(91,79,232,0.4)" strokeWidth="1"/>
+                <rect x="10" y="5" width="160" height="210" rx="18" fill="rgba(20,15,35,0.6)"/>
+                <circle cx="90" cy="48" r="22" fill="rgba(91,79,232,0.15)"/>
+                <path d="M80 56 L80 38" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/>
+                <path d="M80 38 Q92 38 92 45 Q92 52 80 52" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                <path d="M80 52 L94 60" stroke="#5B4FE8" strokeWidth="2.5" strokeLinecap="round"/>
+                <rect x="38" y="86" width="104" height="104" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" strokeWidth="1"/>
+                <rect x="50" y="98" width="30" height="30" rx="5" fill="#5B4FE8"/>
+                <rect x="56" y="104" width="18" height="18" rx="3" fill="#15101f"/>
+                <rect x="100" y="98" width="30" height="30" rx="5" fill="#5B4FE8"/>
+                <rect x="106" y="104" width="18" height="18" rx="3" fill="#15101f"/>
+                <rect x="50" y="148" width="30" height="30" rx="5" fill="#5B4FE8"/>
+                <rect x="56" y="154" width="18" height="18" rx="3" fill="#15101f"/>
+                <rect x="100" y="148" width="14" height="14" rx="3" fill="rgba(255,255,255,0.3)"/>
+                <rect x="118" y="148" width="14" height="14" rx="3" fill="rgba(255,255,255,0.15)"/>
+                <rect x="100" y="166" width="14" height="14" rx="3" fill="rgba(255,255,255,0.15)"/>
+                <rect x="118" y="166" width="14" height="14" rx="3" fill="rgba(255,255,255,0.3)"/>
+                <text x="90" y="202" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9" fill="rgba(255,255,255,0.4)" letterSpacing="0.1em">SCAN TO REVIEW</text>
+              </svg>
+            </div>
+          </div>
+
+          <div className="product-card reveal" style={{background:'#0a0f0a',border:'0.5px solid rgba(29,158,117,0.18)',borderRadius:24,overflow:'hidden',minHeight:440,display:'flex',flexDirection:'column',position:'relative'}}>
+            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(29,158,117,0.2)',borderRadius:'50%',filter:'blur(70px)',opacity:0.45,transition:'opacity 0.3s',pointerEvents:'none'}}/>
+            <div style={{padding:'2rem 2rem 0',position:'relative',zIndex:1}}>
+              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(29,158,117,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem'}}>
+                <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(29,158,117,0.9)'}}>AI Review Flow</span>
+              </div>
+              <div style={{fontSize:23,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff'}}>30 Seconds.<br/>Genuine Review.</div>
+            </div>
+            <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',padding:'1.5rem',position:'relative',zIndex:1}}>
+              <svg width="160" height="240" viewBox="0 0 160 240" fill="none">
+                <rect x="8" y="5" width="144" height="230" rx="28" fill="#0f0f0f" stroke="#252525" strokeWidth="1.5"/>
+                <rect x="14" y="14" width="132" height="212" rx="22" fill="#0a0a0a"/>
+                <rect x="14" y="14" width="132" height="30" fill="rgba(0,0,0,0.4)" rx="22"/>
+                <text x="80" y="68" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9" fill="rgba(255,255,255,0.45)" letterSpacing="0.08em">HOW WAS YOUR VISIT?</text>
+                <text x="22" y="100" fontFamily="Inter,system-ui" fontSize="26" fill="#f59e0b">★</text>
+                <text x="52" y="100" fontFamily="Inter,system-ui" fontSize="26" fill="#f59e0b">★</text>
+                <text x="82" y="100" fontFamily="Inter,system-ui" fontSize="26" fill="#f59e0b">★</text>
+                <text x="112" y="100" fontFamily="Inter,system-ui" fontSize="26" fill="#f59e0b">★</text>
+                <text x="142" y="100" fontFamily="Inter,system-ui" fontSize="26" fill="rgba(255,255,255,0.12)">★</text>
+                <rect x="22" y="128" width="58" height="22" rx="11" fill="rgba(29,158,117,0.18)" stroke="rgba(29,158,117,0.4)" strokeWidth="1"/>
+                <text x="51" y="142" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9.5" fill="#3fc99a">Great food</text>
+                <rect x="84" y="128" width="54" height="22" rx="11" fill="rgba(91,79,232,0.18)" stroke="rgba(91,79,232,0.4)" strokeWidth="1"/>
+                <text x="111" y="142" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9.5" fill="#a89df5">Friendly</text>
+                <rect x="22" y="170" width="118" height="32" rx="10" fill="#1D9E75"/>
+                <text x="81" y="190" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="10.5" fontWeight="500" fill="#fff">Generate My Review →</text>
+              </svg>
+            </div>
+          </div>
+
+          <div className="product-card reveal" style={{background:'#0f0f0a',border:'0.5px solid rgba(232,147,79,0.18)',borderRadius:24,overflow:'hidden',minHeight:440,display:'flex',flexDirection:'column',position:'relative'}}>
+            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(232,147,79,0.2)',borderRadius:'50%',filter:'blur(70px)',opacity:0.45,transition:'opacity 0.3s',pointerEvents:'none'}}/>
+            <div style={{padding:'2rem 2rem 0',position:'relative',zIndex:1}}>
+              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(232,147,79,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem'}}>
+                <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(232,147,79,0.9)'}}>Owner Dashboard</span>
+              </div>
+              <div style={{fontSize:23,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff'}}>Your Ratings.<br/>In Real Time.</div>
+            </div>
+            <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',padding:'1.5rem',position:'relative',zIndex:1}}>
+              <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+                <rect x="5" y="5" width="190" height="190" rx="18" fill="rgba(255,255,255,0.02)" stroke="rgba(232,147,79,0.25)" strokeWidth="1"/>
+                <rect x="20" y="22" width="76" height="60" rx="12" fill="rgba(232,147,79,0.08)"/>
+                <text x="58" y="58" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="26" fontWeight="600" fill="#E8934F">4.8</text>
+                <text x="58" y="72" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="8" fill="rgba(255,255,255,0.4)" letterSpacing="0.08em">AVG RATING</text>
+                <rect x="104" y="22" width="76" height="60" rx="12" fill="rgba(255,255,255,0.04)"/>
+                <text x="142" y="58" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="26" fontWeight="600" fill="#fff">248</text>
+                <text x="142" y="72" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="8" fill="rgba(255,255,255,0.4)" letterSpacing="0.08em">REVIEWS</text>
+                <text x="20" y="106" fontFamily="Inter,system-ui" fontSize="9" fill="rgba(255,255,255,0.4)" letterSpacing="0.08em">BREAKDOWN</text>
+                <rect x="20" y="116" width="160" height="7" rx="3.5" fill="rgba(255,255,255,0.06)"/>
+                <rect x="20" y="116" width="134" height="7" rx="3.5" fill="#E8934F"/>
+                <rect x="20" y="130" width="160" height="7" rx="3.5" fill="rgba(255,255,255,0.06)"/>
+                <rect x="20" y="130" width="16" height="7" rx="3.5" fill="#E8934F" opacity="0.5"/>
+                <circle cx="32" cy="160" r="13" fill="#5B4FE8"/>
+                <text x="32" y="164" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9.5" fontWeight="500" fill="#fff">SL</text>
+                <text x="54" y="157" fontFamily="Inter,system-ui" fontSize="11" fontWeight="500" fill="#fff">Sofia L.</text>
+                <text x="54" y="170" fontFamily="Inter,system-ui" fontSize="8.5" fill="rgba(255,255,255,0.35)">Top staff this month</text>
+                <text x="178" y="163" textAnchor="end" fontFamily="Inter,system-ui" fontSize="13" fontWeight="600" fill="#E8934F">47</text>
+              </svg>
+            </div>
+          </div>
+
         </div>
       </section>
 
-
-      <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
-
-      <section id="how" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
-        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>How It Works</div>
-        <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff',marginBottom:'2.5rem'}}>Scan. Rate. <span style={{color:'#5B4FE8'}}>Grow.</span></h2>
-        <div className="steps-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:1,background:'rgba(255,255,255,0.07)',border:'0.5px solid rgba(255,255,255,0.07)',borderRadius:20,overflow:'hidden'}}>
+      <section style={{padding:"5.5rem 2rem",textAlign:"center",background:"linear-gradient(180deg,#0a0a0a 0%,#0d0b1a 50%,#0a0a0a 100%)"}}>
+        <div className="reveal" style={{fontSize:10,letterSpacing:"0.25em",color:"rgba(255,255,255,0.4)",textTransform:"uppercase",marginBottom:"1.5rem",fontWeight:500}}>The Numbers</div>
+        <h2 className="reveal" style={{fontSize:"clamp(32px,6vw,52px)",fontWeight:500,letterSpacing:"-0.04em",lineHeight:1.0,color:"#fff",marginBottom:"0.75rem"}}>The Proof<br/><span style={{color:"#5B4FE8"}}>Writes Itself.</span></h2>
+        <p className="reveal" style={{fontSize:15,color:"rgba(255,255,255,0.6)",marginBottom:"3.5rem"}}>What happens when every guest has a simple way to share feedback.</p>
+        <div className="proof-nums reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:10,maxWidth:580,margin:"0 auto"}}>
           {[
-            ['01 — Scan','Guest Scans The QR On The Table','A printed card on every table. One scan opens your feedback page instantly — no app, no login, no friction.'],
-            ['02 — Rate','Leaves A Star Rating And Short Feedback','Guests rate their visit, mention a staff member, and leave a comment. Takes under 30 seconds.'],
-            ['03 — AI Writes','Rovu Builds A Genuine Review','Our AI turns their selections into a detailed, natural review — then gives them the option to post it to Google, TripAdvisor, or Facebook.'],
-            ['04 — You Stay Informed','Unhappy Guests Are Heard Privately','Private feedback comes directly to you — so you can reach out, make it right, and recover the relationship.'],
-          ].map(([n,t,b])=>(
-            <div key={n} className="reveal" style={{background:'#0a0a0a',padding:'2.25rem'}}>
-              <div style={{fontSize:10,color:'#5B4FE8',letterSpacing:'0.14em',fontWeight:500,textTransform:'uppercase',marginBottom:'1.25rem'}}>{n}</div>
-              <div style={{fontSize:19,fontWeight:500,color:'#fff',letterSpacing:'-0.03em',marginBottom:'0.75rem',lineHeight:1.2}}>{t}</div>
-              <div style={{fontSize:14,color:'rgba(255,255,255,0.65)',lineHeight:1.75}}>{b}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
-
-      <section id="features" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
-        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>Features</div>
-        <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>Everything Your Venue <span style={{color:'#5B4FE8'}}>Needs.</span></h2>
-        <div className="feat-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
-          {[
-            ['AI-Written Reviews','Our AI turns guest selections into a full, natural review — no typing required. Posted to Google, TripAdvisor, or Facebook in one tap.'],
-            ['Private Feedback Recovery','Guests who had a poor experience are heard privately — giving you the chance to respond, make it right, and recover the relationship.'],
-            ['Staff Recognition','Guests mention the team member who made their night. See who is driving satisfaction and reward the right people.'],
-            ['Owner Dashboard','Total feedback, average rating, positive vs private count, recent comments, and staff mentions — all in one real-time view.'],
-            ['Google, TripAdvisor & Facebook','Every platform Australian diners actually use. One tap from your guest, all three covered.'],
-            ['Email Alerts','Get notified the moment private feedback comes in — so you can act fast and recover the relationship.'],
-          ].map(([t,b])=>(
-            <div key={t} className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.08)',borderRadius:14,padding:'1.5rem',transition:'border-color 0.2s'}}>
-              <div style={{fontSize:15,fontWeight:500,color:'#fff',marginBottom:'0.5rem',letterSpacing:'-0.01em'}}>{t}</div>
-              <div style={{fontSize:13,color:'rgba(255,255,255,0.65)',lineHeight:1.75}}>{b}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section style={{padding:'5.5rem 2rem',textAlign:'center',background:'linear-gradient(180deg,#0a0a0a 0%,#0d0b1a 50%,#0a0a0a 100%)'}}>
-        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:'1.5rem',fontWeight:500}}>The Numbers</div>
-        <h2 className="reveal" style={{fontSize:'clamp(32px,6vw,52px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.0,color:'#fff',marginBottom:'0.75rem'}}>The Proof<br/><span style={{color:'#5B4FE8'}}>Writes Itself.</span></h2>
-        <p className="reveal" style={{fontSize:15,color:'rgba(255,255,255,0.6)',marginBottom:'3.5rem'}}>What happens when every guest has a simple way to share feedback.</p>
-        <div className="proof-nums reveal" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10,maxWidth:580,margin:'0 auto'}}>
-          {[
-            {v:'More',l:'Guest Feedback',bg:'rgba(91,79,232,0.08)',border:'rgba(91,79,232,0.2)',col:'#9b91f5'},
-            {v:'30s',l:'Per Feedback Submission',bg:'rgba(232,147,79,0.08)',border:'rgba(232,147,79,0.2)',col:'#E8934F'},
-            {v:'100%',l:'Of Feedback Captured',bg:'rgba(29,158,117,0.08)',border:'rgba(29,158,117,0.2)',col:'#1D9E75'},
+            {v:"More",l:"Guest Feedback",bg:"rgba(91,79,232,0.08)",border:"rgba(91,79,232,0.2)",col:"#9b91f5"},
+            {v:"30s",l:"Per Feedback Submission",bg:"rgba(232,147,79,0.08)",border:"rgba(232,147,79,0.2)",col:"#E8934F"},
+            {v:"100%",l:"Of Feedback Captured",bg:"rgba(29,158,117,0.08)",border:"rgba(29,158,117,0.2)",col:"#1D9E75"},
           ].map(p=>(
-            <div key={p.l} style={{background:p.bg,border:`0.5px solid ${p.border}`,borderRadius:14,padding:'2rem 1rem',textAlign:'center'}}>
+            <div key={p.l} style={{background:p.bg,border:`0.5px solid ${p.border}`,borderRadius:14,padding:"2rem 1rem",textAlign:"center"}}>
+
               <div style={{fontSize:p.v==='More'?34:42,fontWeight:500,letterSpacing:'-0.04em',color:p.col,lineHeight:1}}>{p.v}</div>
               <div style={{fontSize:10,color:'rgba(255,255,255,0.55)',marginTop:8,letterSpacing:'0.08em',textTransform:'uppercase',fontWeight:500}}>{p.l}</div>
             </div>
