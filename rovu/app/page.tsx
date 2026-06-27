@@ -141,97 +141,26 @@ export default function HomePage() {
         </div>
         <div className="product-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10}}>
           {[
-            {bg:'#0f0a1a',border:'rgba(91,79,232,0.25)',glow:'rgba(91,79,232,0.2)',tag:'Table Card',tagCol:'rgba(155,145,245,0.9)',tagBg:'rgba(91,79,232,0.12)',h:'Scan & Review.\nAny Table.'},
-            {bg:'#0a0f0a',border:'rgba(29,158,117,0.2)',glow:'rgba(29,158,117,0.18)',tag:'AI Review Flow',tagCol:'rgba(29,158,117,0.9)',tagBg:'rgba(29,158,117,0.1)',h:'30 Seconds.\nGenuine Review.'},
-            {bg:'#0f0f0a',border:'rgba(232,147,79,0.2)',glow:'rgba(232,147,79,0.18)',tag:'Owner Dashboard',tagCol:'rgba(232,147,79,0.9)',tagBg:'rgba(232,147,79,0.1)',h:'Your Ratings.\nIn Real Time.'},
+            {bg:'#0f0a1a',border:'rgba(91,79,232,0.25)',glow:'rgba(91,79,232,0.25)',tag:'Table Card',tagCol:'rgba(155,145,245,0.9)',tagBg:'rgba(91,79,232,0.12)',h:'Scan & Review.\nAny Table.',accent:'#5B4FE8',big:'QR'},
+            {bg:'#0a0f0a',border:'rgba(29,158,117,0.2)',glow:'rgba(29,158,117,0.22)',tag:'AI Review Flow',tagCol:'rgba(29,158,117,0.9)',tagBg:'rgba(29,158,117,0.1)',h:'30 Seconds.\nGenuine Review.',accent:'#1D9E75',big:'30s'},
+            {bg:'#0f0f0a',border:'rgba(232,147,79,0.2)',glow:'rgba(232,147,79,0.22)',tag:'Owner Dashboard',tagCol:'rgba(232,147,79,0.9)',tagBg:'rgba(232,147,79,0.1)',h:'Your Ratings.\nIn Real Time.',accent:'#E8934F',big:'4.8'},
           ].map((c,i)=>(
-            <div key={i} className="product-card reveal" style={{background:c.bg,border:`0.5px solid ${c.border}`,borderRadius:20,overflow:'hidden',minHeight:380,display:'flex',flexDirection:'column',position:'relative'}}>
-              <div className="card-glow" style={{position:'absolute',bottom:-60,left:'50%',transform:'translateX(-50%)',width:220,height:220,background:c.glow,borderRadius:'50%',filter:'blur(50px)',opacity:0.4,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-              <div style={{padding:'1.5rem',position:'relative',zIndex:1}}>
-                <div style={{display:'inline-flex',alignItems:'center',background:c.tagBg,borderRadius:8,padding:'4px 10px',marginBottom:'1.25rem'}}>
+            <div key={i} className="product-card reveal" style={{background:c.bg,border:`0.5px solid ${c.border}`,borderRadius:20,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative'}}>
+              <div className="card-glow" style={{position:'absolute',bottom:-80,left:'50%',transform:'translateX(-50%)',width:260,height:260,background:c.glow,borderRadius:'50%',filter:'blur(60px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
+              <div style={{padding:'1.75rem',position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
+                <div style={{display:'inline-flex',alignItems:'center',background:c.tagBg,borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
                   <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:c.tagCol}}>{c.tag}</span>
                 </div>
-                <div style={{fontSize:22,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.2,color:'#fff',marginBottom:'1rem',whiteSpace:'pre-line'}}>{c.h}</div>
-              </div>
-              <div style={{flex:1,display:'flex',alignItems:'flex-end',justifyContent:'center',padding:'1rem',position:'relative',zIndex:1}}>
-                {i===0&&<svg width="150" height="185" viewBox="0 0 150 185" fill="none">
-                  <rect x="5" y="5" width="140" height="175" rx="14" fill="#1a1228" stroke="rgba(91,79,232,0.35)" strokeWidth="0.5"/>
-                  <rect x="20" y="18" width="110" height="26" rx="6" fill="rgba(91,79,232,0.08)"/>
-                  <path d="M34 36 L34 24" stroke="#fff" strokeWidth="1.8" strokeLinecap="round"/>
-                  <path d="M34 24 Q42 24 42 29 Q42 34 34 34" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
-                  <path d="M34 34 L43 40" stroke="#5B4FE8" strokeWidth="1.8" strokeLinecap="round"/>
-                  <text x="50" y="36" fontFamily="Inter,system-ui" fontSize="11" fontWeight="500" fill="#fff">ovu</text>
-                  <circle cx="82" cy="34" r="2.5" fill="#5B4FE8"/>
-                  <rect x="22" y="55" width="106" height="100" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.07)" strokeWidth="0.5"/>
-                  <rect x="30" y="63" width="26" height="26" rx="4" fill="rgba(91,79,232,0.45)"/>
-                  <rect x="33" y="66" width="20" height="20" rx="3" fill="#0f0a1a"/>
-                  <rect x="36" y="69" width="14" height="14" rx="2" fill="#5B4FE8"/>
-                  <rect x="92" y="63" width="26" height="26" rx="4" fill="rgba(91,79,232,0.45)"/>
-                  <rect x="95" y="66" width="20" height="20" rx="3" fill="#0f0a1a"/>
-                  <rect x="98" y="69" width="14" height="14" rx="2" fill="#5B4FE8"/>
-                  <rect x="30" y="117" width="26" height="26" rx="4" fill="rgba(91,79,232,0.45)"/>
-                  <rect x="33" y="120" width="20" height="20" rx="3" fill="#0f0a1a"/>
-                  <rect x="36" y="123" width="14" height="14" rx="2" fill="#5B4FE8"/>
-                  <text x="75" y="166" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="7" fill="rgba(255,255,255,0.4)" letterSpacing="0.08em">SCAN TO LEAVE A REVIEW</text>
-                  <text x="75" y="175" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="7" fill="rgba(91,79,232,0.7)">rovu.com.au</text>
-                </svg>}
-                {i===1&&<svg width="125" height="200" viewBox="0 0 125 200" fill="none">
-                  <rect x="5" y="5" width="115" height="190" rx="22" fill="#0f0f0f" stroke="#1e1e1e" strokeWidth="1"/>
-                  <rect x="10" y="10" width="105" height="180" rx="18" fill="#0a0a0a"/>
-                  <text x="18" y="26" fontFamily="Inter,system-ui" fontSize="8" fontWeight="500" fill="#fff">9:41</text>
-                  <text x="90" y="26" fontFamily="Inter,system-ui" fontSize="7" fill="rgba(255,255,255,0.4)">100%</text>
-                  <text x="62" y="50" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="8" fontWeight="500" fill="#fff">Meza Kitchen</text>
-                  <text x="62" y="68" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="7" fill="rgba(255,255,255,0.5)" letterSpacing="0.08em">HOW WAS YOUR VISIT?</text>
-                  <text x="17" y="91" fontFamily="Inter,system-ui" fontSize="18" fill="#f59e0b">★</text>
-                  <text x="35" y="91" fontFamily="Inter,system-ui" fontSize="18" fill="#f59e0b">★</text>
-                  <text x="53" y="91" fontFamily="Inter,system-ui" fontSize="18" fill="#f59e0b">★</text>
-                  <text x="71" y="91" fontFamily="Inter,system-ui" fontSize="18" fill="#f59e0b">★</text>
-                  <text x="89" y="91" fontFamily="Inter,system-ui" fontSize="18" fill="rgba(255,255,255,0.15)">★</text>
-                  <rect x="13" y="100" width="38" height="13" rx="6.5" fill="rgba(29,158,117,0.15)" stroke="rgba(29,158,117,0.4)" strokeWidth="0.5"/>
-                  <text x="32" y="110" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="6.5" fill="#1D9E75">Great food</text>
-                  <rect x="55" y="100" width="32" height="13" rx="6.5" fill="rgba(91,79,232,0.15)" stroke="rgba(91,79,232,0.4)" strokeWidth="0.5"/>
-                  <text x="71" y="110" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="6.5" fill="#9b91f5">Friendly staff</text>
-                  <rect x="13" y="117" width="46" height="13" rx="6.5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5"/>
-                  <text x="36" y="127" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="6.5" fill="rgba(255,255,255,0.55)">Will return</text>
-                  <rect x="13" y="140" width="99" height="22" rx="8" fill="#5B4FE8"/>
-                  <text x="62" y="155" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9" fontWeight="500" fill="#fff">Generate My Review →</text>
-                  <rect x="43" y="182" width="39" height="3" rx="1.5" fill="rgba(255,255,255,0.18)"/>
-                </svg>}
-                {i===2&&<svg width="180" height="185" viewBox="0 0 180 185" fill="none">
-                  <rect x="5" y="5" width="170" height="175" rx="14" fill="#111008" stroke="rgba(232,147,79,0.18)" strokeWidth="0.5"/>
-                  <rect x="14" y="14" width="44" height="38" rx="7" fill="#1a1808" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5"/>
-                  <text x="36" y="30" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="14" fontWeight="500" fill="#fff">4.8</text>
-                  <text x="47" y="29" fontFamily="Inter,system-ui" fontSize="9" fill="#f59e0b">★</text>
-                  <text x="36" y="46" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="6.5" fill="rgba(255,255,255,0.45)" letterSpacing="0.04em">RATING</text>
-                  <rect x="64" y="14" width="44" height="38" rx="7" fill="#1a1808" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5"/>
-                  <text x="86" y="30" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="14" fontWeight="500" fill="#fff">248</text>
-                  <text x="86" y="46" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="6.5" fill="rgba(255,255,255,0.45)" letterSpacing="0.04em">REVIEWS</text>
-                  <rect x="114" y="14" width="50" height="38" rx="7" fill="#1a1808" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5"/>
-                  <text x="139" y="30" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="14" fontWeight="500" fill="#fff">84%</text>
-                  <text x="139" y="46" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="6.5" fill="rgba(255,255,255,0.45)" letterSpacing="0.04em">5-STAR</text>
-                  <text x="14" y="66" fontFamily="Inter,system-ui" fontSize="6.5" fill="rgba(255,255,255,0.4)" letterSpacing="0.08em">RATING BREAKDOWN</text>
-                  {([['5★',84],['4★',10],['3★',4],['2★',2]] as [string,number][]).map(([l,p],idx)=>(
-                    <g key={l}>
-                      <text x="14" y={80+idx*13} fontFamily="Inter,system-ui" fontSize="7.5" fill="rgba(255,255,255,0.55)">{l}</text>
-                      <rect x="30" y={73+idx*13} width="112" height="5" rx="2.5" fill="rgba(255,255,255,0.06)"/>
-                      <rect x="30" y={73+idx*13} width={112*p/100} height="5" rx="2.5" fill="#E8934F" opacity={1-idx*0.2}/>
-                    </g>
-                  ))}
-                  <text x="14" y="135" fontFamily="Inter,system-ui" fontSize="6.5" fill="rgba(255,255,255,0.4)" letterSpacing="0.08em">STAFF LEADERBOARD</text>
-                  {([{i:'SL',n:'Sofia L.',c:'#5B4FE8',m:'47',y:150},{i:'MR',n:'Marco R.',c:'#1D9E75',m:'38',y:165}] as {i:string,n:string,c:string,m:string,y:number}[]).map(s=>(
-                    <g key={s.i}>
-                      <circle cx="23" cy={s.y} r="9" fill={s.c}/>
-                      <text x="23" y={s.y+3} textAnchor="middle" fontFamily="Inter,system-ui" fontSize="7" fontWeight="500" fill="#fff">{s.i}</text>
-                      <text x="37" y={s.y+4} fontFamily="Inter,system-ui" fontSize="9" fontWeight="500" fill="#fff">{s.n}</text>
-                      <text x="160" y={s.y+4} fontFamily="Inter,system-ui" fontSize="9" fontWeight="500" fill="#E8934F" textAnchor="middle">{s.m}</text>
-                    </g>
-                  ))}
-                </svg>}
+                <div style={{fontSize:22,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.2,color:'#fff',marginBottom:'2rem',whiteSpace:'pre-line'}}>{c.h}</div>
+                <div style={{flex:1,display:'flex',alignItems:'flex-end',justifyContent:'flex-end'}}>
+                  <div style={{fontSize:64,fontWeight:600,letterSpacing:'-0.04em',color:c.accent,lineHeight:1,opacity:0.9}}>{c.big}</div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
+
 
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
