@@ -140,101 +140,51 @@ export default function HomePage() {
         </div>
         <div className="product-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:14}}>
 
-          <div className="product-card reveal" style={{background:'#0f0a1a',border:'0.5px solid rgba(91,79,232,0.22)',borderRadius:24,overflow:'hidden',minHeight:460,display:'flex',flexDirection:'column',position:'relative'}}>
-            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(91,79,232,0.22)',borderRadius:'50%',filter:'blur(70px)',opacity:0.45,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-            <div style={{padding:'1.75rem 1.75rem 0',position:'relative',zIndex:1}}>
-              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(91,79,232,0.12)',borderRadius:8,padding:'4px 10px',marginBottom:'1.25rem'}}>
+          <div className="product-card reveal" style={{background:'#0f0a1a',border:'0.5px solid rgba(91,79,232,0.22)',borderRadius:24,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative',padding:'2rem'}}>
+            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(91,79,232,0.25)',borderRadius:'50%',filter:'blur(70px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
+            <div style={{position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
+              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(91,79,232,0.12)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
                 <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(155,145,245,0.9)'}}>Table Card</span>
               </div>
-              <div style={{fontSize:23,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff'}}>Scan & Review.<br/>Any Table.</div>
-            </div>
-            <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',padding:'1rem 1.25rem 1.5rem',position:'relative',zIndex:1}}>
-              <svg width="100%" height="100%" viewBox="0 0 220 250" fill="none" preserveAspectRatio="xMidYMid meet" style={{maxWidth:220,maxHeight:250}}>
-                <rect x="5" y="5" width="210" height="240" rx="20" fill="rgba(20,15,35,0.7)" stroke="rgba(91,79,232,0.45)" strokeWidth="1.5"/>
-                <circle cx="110" cy="56" r="26" fill="rgba(91,79,232,0.18)"/>
-                <path x="98" y="68" d="M98 68 L98 46" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
-                <path d="M98 46 Q112 46 112 54 Q112 62 98 62" stroke="#fff" strokeWidth="3" strokeLinecap="round" fill="none"/>
-                <path d="M98 62 L114 70" stroke="#5B4FE8" strokeWidth="3" strokeLinecap="round"/>
-                <rect x="38" y="96" width="144" height="128" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5"/>
-                <rect x="54" y="110" width="38" height="38" rx="6" fill="#5B4FE8"/>
-                <rect x="62" y="118" width="22" height="22" rx="4" fill="#15101f"/>
-                <rect x="128" y="110" width="38" height="38" rx="6" fill="#5B4FE8"/>
-                <rect x="136" y="118" width="22" height="22" rx="4" fill="#15101f"/>
-                <rect x="54" y="178" width="38" height="38" rx="6" fill="#5B4FE8"/>
-                <rect x="62" y="186" width="22" height="22" rx="4" fill="#15101f"/>
-                <rect x="128" y="178" width="17" height="17" rx="3" fill="rgba(255,255,255,0.35)"/>
-                <rect x="149" y="178" width="17" height="17" rx="3" fill="rgba(255,255,255,0.15)"/>
-                <rect x="128" y="199" width="17" height="17" rx="3" fill="rgba(255,255,255,0.15)"/>
-                <rect x="149" y="199" width="17" height="17" rx="3" fill="rgba(255,255,255,0.35)"/>
-                <text x="110" y="240" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="11" fill="rgba(255,255,255,0.5)" letterSpacing="0.1em">SCAN TO REVIEW</text>
-              </svg>
+              <div style={{fontSize:24,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff',marginBottom:'1.25rem'}}>Scan & Review.<br/>Any Table.</div>
+              <div style={{fontSize:14,color:'rgba(255,255,255,0.5)',lineHeight:1.7,marginBottom:'2rem'}}>A printed QR card on every table. One scan opens the feedback page instantly — no app, no login.</div>
+              <div style={{flex:1,display:'flex',alignItems:'flex-end'}}>
+                <div style={{fontSize:56,fontWeight:600,letterSpacing:'-0.04em',color:'#5B4FE8',lineHeight:1}}>QR</div>
+              </div>
             </div>
           </div>
 
-          <div className="product-card reveal" style={{background:'#0a0f0a',border:'0.5px solid rgba(29,158,117,0.18)',borderRadius:24,overflow:'hidden',minHeight:460,display:'flex',flexDirection:'column',position:'relative'}}>
-            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(29,158,117,0.2)',borderRadius:'50%',filter:'blur(70px)',opacity:0.45,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-            <div style={{padding:'1.75rem 1.75rem 0',position:'relative',zIndex:1}}>
-              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(29,158,117,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.25rem'}}>
+          <div className="product-card reveal" style={{background:'#0a0f0a',border:'0.5px solid rgba(29,158,117,0.18)',borderRadius:24,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative',padding:'2rem'}}>
+            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(29,158,117,0.22)',borderRadius:'50%',filter:'blur(70px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
+            <div style={{position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
+              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(29,158,117,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
                 <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(29,158,117,0.9)'}}>AI Review Flow</span>
               </div>
-              <div style={{fontSize:23,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff'}}>30 Seconds.<br/>Genuine Review.</div>
-            </div>
-            <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',padding:'0.75rem 1.25rem 1rem',position:'relative',zIndex:1}}>
-              <svg width="100%" height="100%" viewBox="0 0 180 280" fill="none" preserveAspectRatio="xMidYMid meet" style={{maxWidth:180,maxHeight:280}}>
-                <rect x="6" y="4" width="168" height="272" rx="32" fill="#0f0f0f" stroke="#2a2a2a" strokeWidth="2"/>
-                <rect x="14" y="14" width="152" height="252" rx="24" fill="#0a0a0a"/>
-                <rect x="14" y="14" width="152" height="34" fill="rgba(0,0,0,0.45)" rx="24"/>
-                <text x="90" y="80" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="10.5" fill="rgba(255,255,255,0.5)" letterSpacing="0.08em">HOW WAS YOUR VISIT?</text>
-                <text x="26" y="120" fontFamily="Inter,system-ui" fontSize="32" fill="#f59e0b">★</text>
-                <text x="63" y="120" fontFamily="Inter,system-ui" fontSize="32" fill="#f59e0b">★</text>
-                <text x="100" y="120" fontFamily="Inter,system-ui" fontSize="32" fill="#f59e0b">★</text>
-                <text x="137" y="120" fontFamily="Inter,system-ui" fontSize="32" fill="#f59e0b">★</text>
-                <text x="174" y="120" fontFamily="Inter,system-ui" fontSize="32" fill="rgba(255,255,255,0.12)" textAnchor="end">★</text>
-                <rect x="26" y="156" width="68" height="28" rx="14" fill="rgba(29,158,117,0.18)" stroke="rgba(29,158,117,0.4)" strokeWidth="1.2"/>
-                <text x="60" y="174" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="11.5" fill="#3fc99a">Great food</text>
-                <rect x="100" y="156" width="64" height="28" rx="14" fill="rgba(91,79,232,0.18)" stroke="rgba(91,79,232,0.4)" strokeWidth="1.2"/>
-                <text x="132" y="174" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="11.5" fill="#a89df5">Friendly</text>
-                <rect x="26" y="194" width="56" height="28" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.14)" strokeWidth="1.2"/>
-                <text x="54" y="212" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="11.5" fill="rgba(255,255,255,0.6)">Cosy</text>
-                <rect x="26" y="234" width="138" height="40" rx="12" fill="#1D9E75"/>
-                <text x="95" y="259" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="12.5" fontWeight="500" fill="#fff">Generate My Review →</text>
-              </svg>
+              <div style={{fontSize:24,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff',marginBottom:'1.25rem'}}>30 Seconds.<br/>Genuine Review.</div>
+              <div style={{fontSize:14,color:'rgba(255,255,255,0.5)',lineHeight:1.7,marginBottom:'2rem'}}>Guests rate, tap a few highlights, and our AI writes a natural review they can post in one tap.</div>
+              <div style={{flex:1,display:'flex',alignItems:'flex-end'}}>
+                <div style={{fontSize:56,fontWeight:600,letterSpacing:'-0.04em',color:'#1D9E75',lineHeight:1}}>30s</div>
+              </div>
             </div>
           </div>
 
-          <div className="product-card reveal" style={{background:'#0f0f0a',border:'0.5px solid rgba(232,147,79,0.18)',borderRadius:24,overflow:'hidden',minHeight:460,display:'flex',flexDirection:'column',position:'relative'}}>
-            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(232,147,79,0.2)',borderRadius:'50%',filter:'blur(70px)',opacity:0.45,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-            <div style={{padding:'1.75rem 1.75rem 0',position:'relative',zIndex:1}}>
-              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(232,147,79,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.25rem'}}>
+          <div className="product-card reveal" style={{background:'#0f0f0a',border:'0.5px solid rgba(232,147,79,0.18)',borderRadius:24,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative',padding:'2rem'}}>
+            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(232,147,79,0.22)',borderRadius:'50%',filter:'blur(70px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
+            <div style={{position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
+              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(232,147,79,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
                 <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(232,147,79,0.9)'}}>Owner Dashboard</span>
               </div>
-              <div style={{fontSize:23,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff'}}>Your Ratings.<br/>In Real Time.</div>
-            </div>
-            <div style={{flex:1,display:'flex',alignItems:'center',justifyContent:'center',padding:'1rem 1.25rem 1.5rem',position:'relative',zIndex:1}}>
-              <svg width="100%" height="100%" viewBox="0 0 220 230" fill="none" preserveAspectRatio="xMidYMid meet" style={{maxWidth:220,maxHeight:230}}>
-                <rect x="5" y="5" width="210" height="220" rx="20" fill="rgba(255,255,255,0.03)" stroke="rgba(232,147,79,0.3)" strokeWidth="1.5"/>
-                <rect x="20" y="22" width="86" height="68" rx="14" fill="rgba(232,147,79,0.1)"/>
-                <text x="63" y="64" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="30" fontWeight="600" fill="#E8934F">4.8</text>
-                <text x="63" y="80" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9" fill="rgba(255,255,255,0.45)" letterSpacing="0.08em">AVG RATING</text>
-                <rect x="114" y="22" width="86" height="68" rx="14" fill="rgba(255,255,255,0.05)"/>
-                <text x="157" y="64" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="30" fontWeight="600" fill="#fff">248</text>
-                <text x="157" y="80" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="9" fill="rgba(255,255,255,0.45)" letterSpacing="0.08em">REVIEWS</text>
-                <text x="20" y="114" fontFamily="Inter,system-ui" fontSize="10" fill="rgba(255,255,255,0.45)" letterSpacing="0.08em">BREAKDOWN</text>
-                <rect x="20" y="126" width="180" height="9" rx="4.5" fill="rgba(255,255,255,0.06)"/>
-                <rect x="20" y="126" width="151" height="9" rx="4.5" fill="#E8934F"/>
-                <rect x="20" y="143" width="180" height="9" rx="4.5" fill="rgba(255,255,255,0.06)"/>
-                <rect x="20" y="143" width="18" height="9" rx="4.5" fill="#E8934F" opacity="0.5"/>
-                <circle cx="34" cy="180" r="16" fill="#5B4FE8"/>
-                <text x="34" y="185" textAnchor="middle" fontFamily="Inter,system-ui" fontSize="11.5" fontWeight="500" fill="#fff">SL</text>
-                <text x="60" y="176" fontFamily="Inter,system-ui" fontSize="13" fontWeight="500" fill="#fff">Sofia L.</text>
-                <text x="60" y="191" fontFamily="Inter,system-ui" fontSize="10" fill="rgba(255,255,255,0.4)">Top staff this month</text>
-                <text x="198" y="184" textAnchor="end" fontFamily="Inter,system-ui" fontSize="16" fontWeight="600" fill="#E8934F">47</text>
-              </svg>
+              <div style={{fontSize:24,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff',marginBottom:'1.25rem'}}>Your Ratings.<br/>In Real Time.</div>
+              <div style={{fontSize:14,color:'rgba(255,255,255,0.5)',lineHeight:1.7,marginBottom:'2rem'}}>See every review, your average rating, and which staff members are getting the most praise.</div>
+              <div style={{flex:1,display:'flex',alignItems:'flex-end'}}>
+                <div style={{fontSize:56,fontWeight:600,letterSpacing:'-0.04em',color:'#E8934F',lineHeight:1}}>4.8</div>
+              </div>
             </div>
           </div>
 
         </div>
       </section>
+
 
 
       <section style={{padding:"5.5rem 2rem",textAlign:"center",background:"linear-gradient(180deg,#0a0a0a 0%,#0d0b1a 50%,#0a0a0a 100%)"}}>
