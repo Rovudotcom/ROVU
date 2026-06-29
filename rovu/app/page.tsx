@@ -132,11 +132,11 @@ export default function HomePage() {
         <p style={{fontSize:16,color:'rgba(255,255,255,0.65)',lineHeight:1.85}}>Every guest can leave feedback. Guests can also continue to public review platforms — giving you a direct line to your reputation, and a chance to make things right when something goes wrong.</p>
       </section>
 
-
       <style>{`
         .phone-frame{width:220px;height:440px;background:#0a0a0a;border:8px solid #1a1a1a;border-radius:36px;position:relative;box-shadow:0 30px 80px rgba(91,79,232,0.25),0 0 0 1px rgba(255,255,255,0.08) inset;overflow:hidden}
         .phone-frame::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#1a1a1a;border-radius:0 0 14px 14px;z-index:5}
         .phone-screen{position:absolute;top:0;left:0;right:0;bottom:0;padding:32px 16px 16px;display:flex;flex-direction:column}
+        .status-bar{display:flex;justify-content:space-between;align-items:center;padding:0 4px 14px;font-size:9px;color:rgba(255,255,255,0.5);font-weight:500}
       `}</style>
 
       <section style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
@@ -150,21 +150,47 @@ export default function HomePage() {
             <div className="reveal" style={{marginBottom:'1.5rem',display:'flex',justifyContent:'center'}}>
               <div className="phone-frame">
                 <div className="phone-screen">
-                  <div style={{width:32,height:32,background:'rgba(91,79,232,0.18)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',margin:'8px auto 16px'}}>
-                    <div style={{width:14,height:14,border:'2px solid #5B4FE8',borderRadius:3}}/>
+                  <div className="status-bar"><span>9:41</span><span>100%</span></div>
+                  <div style={{display:'flex',alignItems:'center',gap:7,marginBottom:18,justifyContent:'center'}}>
+                    <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
+                      <path d="M10 28 L10 12" stroke="#fff" strokeWidth="3" strokeLinecap="round"/>
+                      <path d="M10 12 Q18 12 18 17 Q18 22 10 22" stroke="#fff" strokeWidth="3" strokeLinecap="round" fill="none"/>
+                      <path d="M10 22 L19 28" stroke="#5B4FE8" strokeWidth="3" strokeLinecap="round"/>
+                    </svg>
+                    <span style={{fontSize:13,fontWeight:500,color:'#fff'}}>Meza Kitchen</span>
                   </div>
-                  <div style={{flex:1,background:'rgba(255,255,255,0.04)',borderRadius:14,border:'1px solid rgba(255,255,255,0.1)',display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,padding:14,alignContent:'start'}}>
-                    <div style={{aspectRatio:'1',background:'#5B4FE8',borderRadius:6}}/>
-                    <div style={{aspectRatio:'1',background:'#5B4FE8',borderRadius:6}}/>
-                    <div style={{aspectRatio:'1',background:'#5B4FE8',borderRadius:6}}/>
-                    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:4}}>
-                      <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.25)',borderRadius:3}}/>
-                      <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.1)',borderRadius:3}}/>
-                      <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.1)',borderRadius:3}}/>
-                      <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.25)',borderRadius:3}}/>
-                    </div>
+                  <div style={{flex:1,background:'rgba(255,255,255,0.03)',borderRadius:16,border:'1px solid rgba(255,255,255,0.1)',display:'flex',alignItems:'center',justifyContent:'center',padding:18}}>
+                    <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none">
+                      <rect x="8" y="8" width="26" height="26" rx="3" fill="#5B4FE8"/>
+                      <rect x="13" y="13" width="16" height="16" rx="2" fill="#15101f"/>
+                      <rect x="17" y="17" width="8" height="8" rx="1" fill="#5B4FE8"/>
+                      <rect x="66" y="8" width="26" height="26" rx="3" fill="#5B4FE8"/>
+                      <rect x="71" y="13" width="16" height="16" rx="2" fill="#15101f"/>
+                      <rect x="75" y="17" width="8" height="8" rx="1" fill="#5B4FE8"/>
+                      <rect x="8" y="66" width="26" height="26" rx="3" fill="#5B4FE8"/>
+                      <rect x="13" y="71" width="16" height="16" rx="2" fill="#15101f"/>
+                      <rect x="17" y="75" width="8" height="8" rx="1" fill="#5B4FE8"/>
+                      <rect x="44" y="8" width="6" height="6" fill="rgba(255,255,255,0.5)"/>
+                      <rect x="52" y="8" width="6" height="6" fill="rgba(255,255,255,0.2)"/>
+                      <rect x="44" y="16" width="6" height="6" fill="rgba(255,255,255,0.2)"/>
+                      <rect x="52" y="16" width="6" height="6" fill="rgba(255,255,255,0.5)"/>
+                      <rect x="44" y="24" width="6" height="6" fill="rgba(255,255,255,0.4)"/>
+                      <rect x="44" y="44" width="6" height="6" fill="rgba(255,255,255,0.4)"/>
+                      <rect x="52" y="44" width="6" height="6" fill="rgba(255,255,255,0.2)"/>
+                      <rect x="60" y="44" width="6" height="6" fill="rgba(255,255,255,0.4)"/>
+                      <rect x="44" y="52" width="6" height="6" fill="rgba(255,255,255,0.2)"/>
+                      <rect x="52" y="52" width="6" height="6" fill="rgba(255,255,255,0.5)"/>
+                      <rect x="68" y="44" width="6" height="6" fill="rgba(255,255,255,0.3)"/>
+                      <rect x="44" y="68" width="6" height="6" fill="rgba(255,255,255,0.3)"/>
+                      <rect x="52" y="68" width="6" height="6" fill="rgba(255,255,255,0.5)"/>
+                      <rect x="66" y="68" width="14" height="6" fill="rgba(255,255,255,0.15)"/>
+                      <rect x="66" y="76" width="10" height="6" fill="rgba(255,255,255,0.1)"/>
+                      <rect x="8" y="44" width="6" height="6" fill="rgba(255,255,255,0.3)"/>
+                      <rect x="16" y="44" width="6" height="6" fill="rgba(255,255,255,0.15)"/>
+                      <rect x="8" y="52" width="6" height="6" fill="rgba(255,255,255,0.4)"/>
+                    </svg>
                   </div>
-                  <div style={{fontSize:9,color:'rgba(255,255,255,0.4)',textAlign:'center',marginTop:12,letterSpacing:'0.08em'}}>SCAN TO REVIEW</div>
+                  <div style={{fontSize:9,color:'rgba(255,255,255,0.4)',textAlign:'center',marginTop:14,letterSpacing:'0.08em'}}>SCAN TO LEAVE A REVIEW</div>
                 </div>
               </div>
             </div>
@@ -178,17 +204,21 @@ export default function HomePage() {
             <div className="reveal reveal-d1" style={{marginBottom:'1.5rem',display:'flex',justifyContent:'center'}}>
               <div className="phone-frame">
                 <div className="phone-screen">
-                  <div style={{fontSize:10,color:'rgba(255,255,255,0.5)',textAlign:'center',marginBottom:12,letterSpacing:'0.06em'}}>HOW WAS YOUR VISIT?</div>
-                  <div style={{display:'flex',justifyContent:'center',gap:4,marginBottom:16}}>
-                    {[1,2,3,4].map(i=><span key={i} style={{fontSize:20,color:'#f59e0b'}}>★</span>)}
-                    <span style={{fontSize:20,color:'rgba(255,255,255,0.12)'}}>★</span>
+                  <div className="status-bar"><span>9:41</span><span>100%</span></div>
+                  <div style={{fontSize:10,color:'rgba(255,255,255,0.5)',textAlign:'center',marginBottom:14,letterSpacing:'0.06em',fontWeight:500}}>HOW WAS YOUR VISIT?</div>
+                  <div style={{display:'flex',justifyContent:'center',gap:5,marginBottom:18}}>
+                    {[1,2,3,4].map(i=><span key={i} style={{fontSize:22,color:'#f59e0b'}}>★</span>)}
+                    <span style={{fontSize:22,color:'rgba(255,255,255,0.12)'}}>★</span>
                   </div>
-                  <div style={{display:'flex',flexWrap:'wrap',gap:6,justifyContent:'center',marginBottom:16}}>
-                    <div style={{fontSize:10,background:'rgba(29,158,117,0.18)',color:'#3fc99a',padding:'5px 10px',borderRadius:20,border:'1px solid rgba(29,158,117,0.4)'}}>Great food</div>
-                    <div style={{fontSize:10,background:'rgba(91,79,232,0.18)',color:'#a89df5',padding:'5px 10px',borderRadius:20,border:'1px solid rgba(91,79,232,0.4)'}}>Friendly</div>
+                  <div style={{display:'flex',flexWrap:'wrap',gap:7,justifyContent:'center',marginBottom:18}}>
+                    <div style={{fontSize:10.5,background:'rgba(29,158,117,0.18)',color:'#3fc99a',padding:'6px 12px',borderRadius:20,border:'1px solid rgba(29,158,117,0.4)',fontWeight:500}}>Great food</div>
+                    <div style={{fontSize:10.5,background:'rgba(91,79,232,0.18)',color:'#a89df5',padding:'6px 12px',borderRadius:20,border:'1px solid rgba(91,79,232,0.4)',fontWeight:500}}>Friendly</div>
+                  </div>
+                  <div style={{display:'flex',justifyContent:'center',marginBottom:18}}>
+                    <div style={{fontSize:10.5,background:'rgba(255,255,255,0.05)',color:'rgba(255,255,255,0.55)',padding:'6px 12px',borderRadius:20,border:'1px solid rgba(255,255,255,0.12)',fontWeight:500}}>Cosy atmosphere</div>
                   </div>
                   <div style={{flex:1}}/>
-                  <div style={{background:'#1D9E75',borderRadius:10,padding:'10px',textAlign:'center',fontSize:10.5,fontWeight:500,color:'#fff'}}>Generate My Review →</div>
+                  <div style={{background:'#1D9E75',borderRadius:12,padding:'12px',textAlign:'center',fontSize:11,fontWeight:500,color:'#fff'}}>✨ Generate My Review →</div>
                 </div>
               </div>
             </div>
@@ -202,27 +232,35 @@ export default function HomePage() {
             <div className="reveal reveal-d2" style={{marginBottom:'1.5rem',display:'flex',justifyContent:'center'}}>
               <div className="phone-frame">
                 <div className="phone-screen">
-                  <div style={{display:'flex',gap:8,marginBottom:14}}>
-                    <div style={{flex:1,background:'rgba(232,147,79,0.1)',borderRadius:10,padding:'10px 8px',textAlign:'center'}}>
-                      <div style={{fontSize:20,fontWeight:600,color:'#E8934F'}}>4.8</div>
-                      <div style={{fontSize:7.5,color:'rgba(255,255,255,0.4)',letterSpacing:'0.05em'}}>RATING</div>
+                  <div className="status-bar"><span>9:41</span><span>100%</span></div>
+                  <div style={{fontSize:9.5,color:'rgba(255,255,255,0.45)',marginBottom:10,letterSpacing:'0.06em',fontWeight:500}}>OVERVIEW</div>
+                  <div style={{display:'flex',gap:8,marginBottom:16}}>
+                    <div style={{flex:1,background:'rgba(232,147,79,0.1)',borderRadius:12,padding:'12px 8px',textAlign:'center',border:'1px solid rgba(232,147,79,0.15)'}}>
+                      <div style={{fontSize:22,fontWeight:600,color:'#E8934F',lineHeight:1}}>4.8</div>
+                      <div style={{fontSize:7.5,color:'rgba(255,255,255,0.4)',letterSpacing:'0.05em',marginTop:4}}>RATING</div>
                     </div>
-                    <div style={{flex:1,background:'rgba(255,255,255,0.05)',borderRadius:10,padding:'10px 8px',textAlign:'center'}}>
-                      <div style={{fontSize:20,fontWeight:600,color:'#fff'}}>248</div>
-                      <div style={{fontSize:7.5,color:'rgba(255,255,255,0.4)',letterSpacing:'0.05em'}}>REVIEWS</div>
+                    <div style={{flex:1,background:'rgba(255,255,255,0.05)',borderRadius:12,padding:'12px 8px',textAlign:'center',border:'1px solid rgba(255,255,255,0.07)'}}>
+                      <div style={{fontSize:22,fontWeight:600,color:'#fff',lineHeight:1}}>248</div>
+                      <div style={{fontSize:7.5,color:'rgba(255,255,255,0.4)',letterSpacing:'0.05em',marginTop:4}}>REVIEWS</div>
                     </div>
                   </div>
-                  <div style={{fontSize:9,color:'rgba(255,255,255,0.4)',marginBottom:6,letterSpacing:'0.06em'}}>BREAKDOWN</div>
-                  <div style={{height:6,background:'rgba(255,255,255,0.06)',borderRadius:3,marginBottom:6,overflow:'hidden'}}><div style={{height:'100%',width:'85%',background:'#E8934F',borderRadius:3}}/></div>
-                  <div style={{height:6,background:'rgba(255,255,255,0.06)',borderRadius:3,marginBottom:16,overflow:'hidden'}}><div style={{height:'100%',width:'10%',background:'#E8934F',opacity:0.5,borderRadius:3}}/></div>
+                  <div style={{fontSize:9,color:'rgba(255,255,255,0.4)',marginBottom:8,letterSpacing:'0.06em',fontWeight:500}}>BREAKDOWN</div>
+                  <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:6}}>
+                    <span style={{fontSize:9,color:'rgba(255,255,255,0.4)',width:14}}>5★</span>
+                    <div style={{flex:1,height:6,background:'rgba(255,255,255,0.06)',borderRadius:3,overflow:'hidden'}}><div style={{height:'100%',width:'85%',background:'#E8934F',borderRadius:3}}/></div>
+                  </div>
+                  <div style={{display:'flex',alignItems:'center',gap:6,marginBottom:18}}>
+                    <span style={{fontSize:9,color:'rgba(255,255,255,0.4)',width:14}}>4★</span>
+                    <div style={{flex:1,height:6,background:'rgba(255,255,255,0.06)',borderRadius:3,overflow:'hidden'}}><div style={{height:'100%',width:'10%',background:'#E8934F',opacity:0.5,borderRadius:3}}/></div>
+                  </div>
                   <div style={{flex:1}}/>
-                  <div style={{display:'flex',alignItems:'center',gap:8,background:'rgba(255,255,255,0.04)',borderRadius:10,padding:8}}>
-                    <div style={{width:24,height:24,borderRadius:'50%',background:'#5B4FE8',display:'flex',alignItems:'center',justifyContent:'center',fontSize:9,fontWeight:500,color:'#fff'}}>SL</div>
+                  <div style={{display:'flex',alignItems:'center',gap:9,background:'rgba(255,255,255,0.04)',borderRadius:12,padding:10,border:'1px solid rgba(255,255,255,0.07)'}}>
+                    <div style={{width:28,height:28,borderRadius:'50%',background:'#5B4FE8',display:'flex',alignItems:'center',justifyContent:'center',fontSize:10,fontWeight:500,color:'#fff',flexShrink:0}}>SL</div>
                     <div style={{flex:1,textAlign:'left'}}>
-                      <div style={{fontSize:10,fontWeight:500,color:'#fff'}}>Sofia L.</div>
-                      <div style={{fontSize:8,color:'rgba(255,255,255,0.4)'}}>Top staff</div>
+                      <div style={{fontSize:11,fontWeight:500,color:'#fff'}}>Sofia L.</div>
+                      <div style={{fontSize:8.5,color:'rgba(255,255,255,0.4)'}}>Top staff this month</div>
                     </div>
-                    <div style={{fontSize:13,fontWeight:600,color:'#E8934F'}}>47</div>
+                    <div style={{fontSize:15,fontWeight:600,color:'#E8934F'}}>47</div>
                   </div>
                 </div>
               </div>
@@ -235,6 +273,7 @@ export default function HomePage() {
 
         </div>
       </section>
+
 
 
 
