@@ -92,6 +92,7 @@ export default function HomePage() {
           <a href="#how" className="nav-link" style={{color:'rgba(255,255,255,0.55)',fontSize:13,textDecoration:'none',transition:'color 0.2s'}}>How It Works</a>
           <a href="#features" className="nav-link" style={{color:'rgba(255,255,255,0.55)',fontSize:13,textDecoration:'none',transition:'color 0.2s'}}>Features</a>
           <a href="#pricing" className="nav-link" style={{color:'rgba(255,255,255,0.55)',fontSize:13,textDecoration:'none',transition:'color 0.2s'}}>Pricing</a>
+          <a href="/venue/meza-kitchen-bar" className="nav-link" style={{color:"rgba(255,255,255,0.55)",fontSize:13,textDecoration:"none",transition:"color 0.2s"}}>See a Demo</a>
           <a href="/book-demo" className="btn-primary" style={{background:'#5B4FE8',color:'#fff',padding:'7px 18px',borderRadius:8,fontSize:13,fontWeight:500,textDecoration:'none',transition:'opacity 0.15s'}}>Book a 10-Min Demo</a>
         </div>
         <a href="/book-demo" className="nav-mobile" style={{display:'none',background:'#5B4FE8',color:'#fff',padding:'7px 14px',borderRadius:8,fontSize:13,fontWeight:500,textDecoration:'none'}}>Demo</a>
@@ -274,6 +275,50 @@ export default function HomePage() {
         </div>
       </section>
 
+
+
+      <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
+
+      <section id="how" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
+        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>How It Works</div>
+        <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff',marginBottom:'2.5rem'}}>Scan. Rate. <span style={{color:'#5B4FE8'}}>Grow.</span></h2>
+        <div className="steps-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:1,background:'rgba(255,255,255,0.07)',border:'0.5px solid rgba(255,255,255,0.07)',borderRadius:20,overflow:'hidden'}}>
+          {[
+            ['01 — Scan','Guest Scans The QR On The Table','A printed card on every table. One scan opens your feedback page instantly — no app, no login, no friction.'],
+            ['02 — Rate','Leaves A Star Rating And Short Feedback','Guests rate their visit, mention a staff member, and leave a comment. Takes under 30 seconds.'],
+            ['03 — AI Writes','Rovu Builds A Genuine Review','Our AI turns their selections into a detailed, natural review — then gives them the option to post it to Google, TripAdvisor, or Facebook.'],
+            ['04 — You Stay Informed','Unhappy Guests Are Heard Privately','Private feedback comes directly to you — so you can reach out, make it right, and recover the relationship.'],
+          ].map(([n,t,b])=>(
+            <div key={n} className="reveal" style={{background:'#0a0a0a',padding:'2.25rem'}}>
+              <div style={{fontSize:10,color:'#5B4FE8',letterSpacing:'0.14em',fontWeight:500,textTransform:'uppercase',marginBottom:'1.25rem'}}>{n}</div>
+              <div style={{fontSize:19,fontWeight:500,color:'#fff',letterSpacing:'-0.03em',marginBottom:'0.75rem',lineHeight:1.2}}>{t}</div>
+              <div style={{fontSize:14,color:'rgba(255,255,255,0.65)',lineHeight:1.75}}>{b}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
+
+      <section id="features" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
+        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>Features</div>
+        <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>Everything Your Venue <span style={{color:'#5B4FE8'}}>Needs.</span></h2>
+        <div className="feat-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:10}}>
+          {[
+            ['AI-Written Reviews','Our AI turns guest selections into a full, natural review — no typing required. Posted to Google, TripAdvisor, or Facebook in one tap.'],
+            ['Private Feedback Recovery','Guests who had a poor experience are heard privately — giving you the chance to respond, make it right, and recover the relationship.'],
+            ['Staff Recognition','Guests mention the team member who made their night. See who is driving satisfaction and reward the right people.'],
+            ['Owner Dashboard','Total feedback, average rating, positive vs private count, recent comments, and staff mentions — all in one real-time view.'],
+            ['Google, TripAdvisor & Facebook','Every platform Australian diners actually use. One tap from your guest, all three covered.'],
+            ['Email Alerts','Get notified the moment private feedback comes in — so you can act fast and recover the relationship.'],
+          ].map(([t,b])=>(
+            <div key={t} className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.08)',borderRadius:14,padding:'1.5rem',transition:'border-color 0.2s'}}>
+              <div style={{fontSize:15,fontWeight:500,color:'#fff',marginBottom:'0.5rem',letterSpacing:'-0.01em'}}>{t}</div>
+              <div style={{fontSize:13,color:'rgba(255,255,255,0.65)',lineHeight:1.75}}>{b}</div>
+            </div>
+          ))}
+        </div>
+      </section>
 
 
 
