@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Rovu <alerts@rovu.com.au>',
+        from: 'Rovu <onboarding@resend.dev>',
         to: 'rovu.help@gmail.com',
         subject: `New Demo Request from ${venue_name}`,
         html: `<div style="font-family:Inter,system-ui;padding:32px;background:#0a0a0a;color:#fff"><h2 style="color:#5B4FE8">New Demo Request</h2><p><strong>Name:</strong> ${name}</p><p><strong>Venue:</strong> ${venue_name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Phone:</strong> ${phone || 'Not provided'}</p><p><strong>Message:</strong> ${message || 'None'}</p></div>`
