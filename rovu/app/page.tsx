@@ -133,109 +133,118 @@ export default function HomePage() {
       </section>
 
 
+      <style>{`
+        .phone-frame{width:220px;height:440px;background:#0a0a0a;border:8px solid #1a1a1a;border-radius:36px;position:relative;box-shadow:0 30px 80px rgba(91,79,232,0.25),0 0 0 1px rgba(255,255,255,0.08) inset;overflow:hidden}
+        .phone-frame::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#1a1a1a;border-radius:0 0 14px 14px;z-index:5}
+        .phone-screen{position:absolute;top:0;left:0;right:0;bottom:0;padding:32px 16px 16px;display:flex;flex-direction:column}
+        .phone-wrap{transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+        .phone-wrap.in{transform:translateY(0) rotate(0deg)}
+        .phone-wrap{transform:translateY(20px)}
+      `}</style>
+
       <section style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
         <div className="reveal" style={{textAlign:'center',marginBottom:'3.5rem'}}>
           <div style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.35)',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>The Product</div>
           <h2 style={{fontSize:'clamp(28px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',lineHeight:1.1,color:'#fff'}}>Three Moments.<br/><span style={{color:'#5B4FE8'}}>One Seamless Flow.</span></h2>
         </div>
-        <div className="product-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:14}}>
+        <div className="product-grid" style={{display:'flex',gap:24,justifyContent:'center',flexWrap:'wrap',alignItems:'flex-start'}}>
 
-          <div className="product-card reveal" style={{background:'#0f0a1a',border:'0.5px solid rgba(91,79,232,0.22)',borderRadius:24,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative',padding:'2rem'}}>
-            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(91,79,232,0.25)',borderRadius:'50%',filter:'blur(70px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-            <div style={{position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
-              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(91,79,232,0.12)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
-                <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(155,145,245,0.9)'}}>Table Card</span>
-              </div>
-              <div style={{fontSize:24,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff',marginBottom:'1.25rem'}}>Scan & Review.<br/>Any Table.</div>
-              <div style={{fontSize:14,color:'rgba(255,255,255,0.5)',lineHeight:1.7,marginBottom:'2rem'}}>A printed QR card on every table. One scan opens the feedback page instantly — no app, no login.</div>
-              <div style={{flex:1,display:'flex',alignItems:'flex-end'}}>
-                <div style={{fontSize:56,fontWeight:600,letterSpacing:'-0.04em',color:'#5B4FE8',lineHeight:1}}>QR</div>
+          <div style={{textAlign:'center',maxWidth:240}}>
+            <div className="reveal" style={{marginBottom:'1.5rem'}}>
+              <div className="phone-wrap reveal" style={{display:'flex',justifyContent:'center'}}>
+                <div className="phone-frame">
+                  <div className="phone-screen">
+                    <div style={{width:32,height:32,background:'rgba(91,79,232,0.18)',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',margin:'8px auto 16px'}}>
+                      <div style={{width:14,height:14,border:'2px solid #5B4FE8',borderRadius:3}}/>
+                    </div>
+                    <div style={{flex:1,background:'rgba(255,255,255,0.04)',borderRadius:14,border:'1px solid rgba(255,255,255,0.1)',display:'grid',gridTemplateColumns:'1fr 1fr',gap:8,padding:14,alignContent:'start'}}>
+                      <div style={{aspectRatio:'1',background:'#5B4FE8',borderRadius:6}}/>
+                      <div style={{aspectRatio:'1',background:'#5B4FE8',borderRadius:6}}/>
+                      <div style={{aspectRatio:'1',background:'#5B4FE8',borderRadius:6}}/>
+                      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:4}}>
+                        <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.25)',borderRadius:3}}/>
+                        <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.1)',borderRadius:3}}/>
+                        <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.1)',borderRadius:3}}/>
+                        <div style={{aspectRatio:'1',background:'rgba(255,255,255,0.25)',borderRadius:3}}/>
+                      </div>
+                    </div>
+                    <div style={{fontSize:9,color:'rgba(255,255,255,0.4)',textAlign:'center',marginTop:12,letterSpacing:'0.08em'}}>SCAN TO REVIEW</div>
+                  </div>
+                </div>
               </div>
             </div>
+            <div style={{display:'inline-flex',alignItems:'center',background:'rgba(91,79,232,0.12)',borderRadius:8,padding:'4px 10px',marginBottom:'1rem'}}>
+              <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(155,145,245,0.9)'}}>Table Card</span>
+            </div>
+            <div style={{fontSize:18,fontWeight:500,letterSpacing:'-0.02em',lineHeight:1.3,color:'#fff'}}>Scan & Review.<br/>Any Table.</div>
           </div>
 
-          <div className="product-card reveal" style={{background:'#0a0f0a',border:'0.5px solid rgba(29,158,117,0.18)',borderRadius:24,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative',padding:'2rem'}}>
-            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(29,158,117,0.22)',borderRadius:'50%',filter:'blur(70px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-            <div style={{position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
-              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(29,158,117,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
-                <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(29,158,117,0.9)'}}>AI Review Flow</span>
-              </div>
-              <div style={{fontSize:24,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff',marginBottom:'1.25rem'}}>30 Seconds.<br/>Genuine Review.</div>
-              <div style={{fontSize:14,color:'rgba(255,255,255,0.5)',lineHeight:1.7,marginBottom:'2rem'}}>Guests rate, tap a few highlights, and our AI writes a natural review they can post in one tap.</div>
-              <div style={{flex:1,display:'flex',alignItems:'flex-end'}}>
-                <div style={{fontSize:56,fontWeight:600,letterSpacing:'-0.04em',color:'#1D9E75',lineHeight:1}}>30s</div>
+          <div style={{textAlign:'center',maxWidth:240}}>
+            <div className="reveal reveal-d1" style={{marginBottom:'1.5rem'}}>
+              <div className="phone-wrap reveal reveal-d1" style={{display:'flex',justifyContent:'center'}}>
+                <div className="phone-frame">
+                  <div className="phone-screen">
+                    <div style={{fontSize:10,color:'rgba(255,255,255,0.5)',textAlign:'center',marginBottom:12,letterSpacing:'0.06em'}}>HOW WAS YOUR VISIT?</div>
+                    <div style={{display:'flex',justifyContent:'center',gap:4,marginBottom:16}}>
+                      {[1,2,3,4].map(i=><span key={i} style={{fontSize:20,color:'#f59e0b'}}>★</span>)}
+                      <span style={{fontSize:20,color:'rgba(255,255,255,0.12)'}}>★</span>
+                    </div>
+                    <div style={{display:'flex',flexWrap:'wrap',gap:6,justifyContent:'center',marginBottom:16}}>
+                      <div style={{fontSize:10,background:'rgba(29,158,117,0.18)',color:'#3fc99a',padding:'5px 10px',borderRadius:20,border:'1px solid rgba(29,158,117,0.4)'}}>Great food</div>
+                      <div style={{fontSize:10,background:'rgba(91,79,232,0.18)',color:'#a89df5',padding:'5px 10px',borderRadius:20,border:'1px solid rgba(91,79,232,0.4)'}}>Friendly</div>
+                    </div>
+                    <div style={{flex:1}}/>
+                    <div style={{background:'#1D9E75',borderRadius:10,padding:'10px',textAlign:'center',fontSize:10.5,fontWeight:500,color:'#fff'}}>Generate My Review →</div>
+                  </div>
+                </div>
               </div>
             </div>
+            <div style={{display:'inline-flex',alignItems:'center',background:'rgba(29,158,117,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1rem'}}>
+              <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(29,158,117,0.9)'}}>AI Review Flow</span>
+            </div>
+            <div style={{fontSize:18,fontWeight:500,letterSpacing:'-0.02em',lineHeight:1.3,color:'#fff'}}>30 Seconds.<br/>Genuine Review.</div>
           </div>
 
-          <div className="product-card reveal" style={{background:'#0f0f0a',border:'0.5px solid rgba(232,147,79,0.18)',borderRadius:24,overflow:'hidden',minHeight:340,display:'flex',flexDirection:'column',position:'relative',padding:'2rem'}}>
-            <div className="card-glow" style={{position:'absolute',bottom:-100,left:'50%',transform:'translateX(-50%)',width:300,height:300,background:'rgba(232,147,79,0.22)',borderRadius:'50%',filter:'blur(70px)',opacity:0.5,transition:'opacity 0.3s',pointerEvents:'none'}}/>
-            <div style={{position:'relative',zIndex:1,flex:1,display:'flex',flexDirection:'column'}}>
-              <div style={{display:'inline-flex',alignItems:'center',background:'rgba(232,147,79,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1.5rem',alignSelf:'flex-start'}}>
-                <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(232,147,79,0.9)'}}>Owner Dashboard</span>
-              </div>
-              <div style={{fontSize:24,fontWeight:500,letterSpacing:'-0.03em',lineHeight:1.25,color:'#fff',marginBottom:'1.25rem'}}>Your Ratings.<br/>In Real Time.</div>
-              <div style={{fontSize:14,color:'rgba(255,255,255,0.5)',lineHeight:1.7,marginBottom:'2rem'}}>See every review, your average rating, and which staff members are getting the most praise.</div>
-              <div style={{flex:1,display:'flex',alignItems:'flex-end'}}>
-                <div style={{fontSize:56,fontWeight:600,letterSpacing:'-0.04em',color:'#E8934F',lineHeight:1}}>4.8</div>
+          <div style={{textAlign:'center',maxWidth:240}}>
+            <div className="reveal reveal-d2" style={{marginBottom:'1.5rem'}}>
+              <div className="phone-wrap reveal reveal-d2" style={{display:'flex',justifyContent:'center'}}>
+                <div className="phone-frame">
+                  <div className="phone-screen">
+                    <div style={{display:'flex',gap:8,marginBottom:14}}>
+                      <div style={{flex:1,background:'rgba(232,147,79,0.1)',borderRadius:10,padding:'10px 8px',textAlign:'center'}}>
+                        <div style={{fontSize:20,fontWeight:600,color:'#E8934F'}}>4.8</div>
+                        <div style={{fontSize:7.5,color:'rgba(255,255,255,0.4)',letterSpacing:'0.05em'}}>RATING</div>
+                      </div>
+                      <div style={{flex:1,background:'rgba(255,255,255,0.05)',borderRadius:10,padding:'10px 8px',textAlign:'center'}}>
+                        <div style={{fontSize:20,fontWeight:600,color:'#fff'}}>248</div>
+                        <div style={{fontSize:7.5,color:'rgba(255,255,255,0.4)',letterSpacing:'0.05em'}}>REVIEWS</div>
+                      </div>
+                    </div>
+                    <div style={{fontSize:9,color:'rgba(255,255,255,0.4)',marginBottom:6,letterSpacing:'0.06em'}}>BREAKDOWN</div>
+                    <div style={{height:6,background:'rgba(255,255,255,0.06)',borderRadius:3,marginBottom:6,overflow:'hidden'}}><div style={{height:'100%',width:'85%',background:'#E8934F',borderRadius:3}}/></div>
+                    <div style={{height:6,background:'rgba(255,255,255,0.06)',borderRadius:3,marginBottom:16,overflow:'hidden'}}><div style={{height:'100%',width:'10%',background:'#E8934F',opacity:0.5,borderRadius:3}}/></div>
+                    <div style={{flex:1}}/>
+                    <div style={{display:'flex',alignItems:'center',gap:8,background:'rgba(255,255,255,0.04)',borderRadius:10,padding:8}}>
+                      <div style={{width:24,height:24,borderRadius:'50%',background:'#5B4FE8',display:'flex',alignItems:'center',justifyContent:'center',fontSize:9,fontWeight:500,color:'#fff'}}>SL</div>
+                      <div style={{flex:1,textAlign:'left'}}>
+                        <div style={{fontSize:10,fontWeight:500,color:'#fff'}}>Sofia L.</div>
+                        <div style={{fontSize:8,color:'rgba(255,255,255,0.4)'}}>Top staff</div>
+                      </div>
+                      <div style={{fontSize:13,fontWeight:600,color:'#E8934F'}}>47</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <div style={{display:'inline-flex',alignItems:'center',background:'rgba(232,147,79,0.1)',borderRadius:8,padding:'4px 10px',marginBottom:'1rem'}}>
+              <span style={{fontSize:10,fontWeight:500,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(232,147,79,0.9)'}}>Owner Dashboard</span>
+            </div>
+            <div style={{fontSize:18,fontWeight:500,letterSpacing:'-0.02em',lineHeight:1.3,color:'#fff'}}>Your Ratings.<br/>In Real Time.</div>
           </div>
 
         </div>
       </section>
 
-
-
-      <section style={{padding:"5.5rem 2rem",textAlign:"center",background:"linear-gradient(180deg,#0a0a0a 0%,#0d0b1a 50%,#0a0a0a 100%)"}}>
-        <div className="reveal" style={{fontSize:10,letterSpacing:"0.25em",color:"rgba(255,255,255,0.4)",textTransform:"uppercase",marginBottom:"1.5rem",fontWeight:500}}>The Numbers</div>
-        <h2 className="reveal" style={{fontSize:"clamp(32px,6vw,52px)",fontWeight:500,letterSpacing:"-0.04em",lineHeight:1.0,color:"#fff",marginBottom:"0.75rem"}}>The Proof<br/><span style={{color:"#5B4FE8"}}>Writes Itself.</span></h2>
-        <p className="reveal" style={{fontSize:15,color:"rgba(255,255,255,0.6)",marginBottom:"3.5rem"}}>What happens when every guest has a simple way to share feedback.</p>
-        <div className="proof-nums reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:10,maxWidth:580,margin:"0 auto"}}>
-          {[
-            {v:"More",l:"Guest Feedback",bg:"rgba(91,79,232,0.08)",border:"rgba(91,79,232,0.2)",col:"#9b91f5"},
-            {v:"30s",l:"Per Feedback Submission",bg:"rgba(232,147,79,0.08)",border:"rgba(232,147,79,0.2)",col:"#E8934F"},
-            {v:"100%",l:"Of Feedback Captured",bg:"rgba(29,158,117,0.08)",border:"rgba(29,158,117,0.2)",col:"#1D9E75"},
-          ].map(p=>(
-            <div key={p.l} style={{background:p.bg,border:`0.5px solid ${p.border}`,borderRadius:14,padding:"2rem 1rem",textAlign:"center"}}>
-
-              <div style={{fontSize:p.v==='More'?34:42,fontWeight:500,letterSpacing:'-0.04em',color:p.col,lineHeight:1}}>{p.v}</div>
-              <div style={{fontSize:10,color:'rgba(255,255,255,0.55)',marginTop:8,letterSpacing:'0.08em',textTransform:'uppercase',fontWeight:500}}>{p.l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="pricing" style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
-        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'#5B4FE8',textTransform:'uppercase',marginBottom:'1.25rem',fontWeight:500}}>Pricing</div>
-        <h2 className="reveal" style={{fontSize:'clamp(30px,5vw,44px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'2.5rem',lineHeight:1.1}}>Honest Pricing.<br/><span style={{color:'#5B4FE8'}}>No Surprises.</span></h2>
-        <div className="price-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10}}>
-          {[
-            {n:'Starter',p:'A$49',d:'Single venue, getting started',f:['QR feedback flow','5 staff profiles','Google review link','Basic dashboard'],hot:false},
-            {n:'Growth',p:'A$99',d:'Serious about your reputation',f:['Everything in Starter','Private feedback recovery','Unlimited staff profiles','All review platforms','Weekly digest email'],hot:true},
-            {n:'Chain',p:'A$249',d:'Multiple locations',f:['Up to 5 locations','Multi-venue dashboard','White-label branding','Priority support'],hot:false},
-          ].map(t=>(
-            <div key={t.n} className="reveal price-card" style={{background:t.hot?'#0c0a18':'#0f0f0f',border:`0.5px solid ${t.hot?'rgba(91,79,232,0.5)':'rgba(255,255,255,0.08)'}`,borderRadius:14,padding:'1.5rem',cursor:'default'}}>
-              {t.hot&&<div style={{fontSize:9,fontWeight:500,background:'rgba(91,79,232,0.18)',color:'#9b91f5',padding:'3px 9px',borderRadius:20,display:'inline-block',marginBottom:10,letterSpacing:'0.08em',textTransform:'uppercase'}}>Most Popular</div>}
-              <div style={{fontSize:10,color:'rgba(255,255,255,0.4)',marginBottom:8,letterSpacing:'0.12em',textTransform:'uppercase',fontWeight:500}}>{t.n}</div>
-              <div style={{fontSize:34,fontWeight:500,color:'#fff',letterSpacing:'-0.04em',lineHeight:1}}>{t.p}<span style={{fontSize:12,color:'rgba(255,255,255,0.4)',fontWeight:400}}>/mo</span></div>
-              <div style={{fontSize:11,color:'rgba(255,255,255,0.45)',margin:'8px 0 14px',paddingBottom:12,borderBottom:'0.5px solid rgba(255,255,255,0.07)'}}>{t.d}</div>
-              <div style={{display:'flex',flexDirection:'column',gap:6,marginBottom:'1.25rem'}}>
-                {t.f.map(f=><div key={f} style={{display:'flex',alignItems:'center',gap:7,fontSize:12,color:'rgba(255,255,255,0.65)'}}><div style={{width:3,height:3,borderRadius:'50%',background:'#5B4FE8',flexShrink:0}}></div>{f}</div>)}
-              </div>
-              <a href="/book-demo" className="price-btn" style={{display:'block',padding:'10px',borderRadius:8,fontSize:12,fontWeight:500,textAlign:'center',background:t.hot?'#5B4FE8':'transparent',border:`0.5px solid ${t.hot?'#5B4FE8':'rgba(255,255,255,0.12)'}`,color:t.hot?'#fff':'rgba(255,255,255,0.6)',textDecoration:'none'}}>Book a 10-Min Demo</a>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section style={{padding:'5rem 2rem',maxWidth:1100,margin:'0 auto'}}>
-        <div className="reveal" style={{fontSize:10,letterSpacing:'0.25em',color:'rgba(255,255,255,0.4)',textTransform:'uppercase',marginBottom:'1.5rem',fontWeight:500}}>Early Days</div>
-        <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,40px)',fontWeight:500,letterSpacing:'-0.04em',color:'#fff',marginBottom:'1.5rem',lineHeight:1.1}}>Built For Real Venues.<br/><span style={{color:'#5B4FE8'}}>Pilot Results Coming Soon.</span></h2>
-        <div className="reveal" style={{background:'#0f0f0f',border:'0.5px solid rgba(255,255,255,0.08)',borderRadius:16,padding:'2.5rem',textAlign:'center'}}>
-          <p style={{fontSize:15,color:'rgba(255,255,255,0.65)',lineHeight:1.8,maxWidth:520,margin:'0 auto'}}>We're working directly with Australian hospitality venues to refine Rovu before wider rollout. Real results from real pilot venues will be shared here soon.</p>
-        </div>
-      </section>
 
       <div style={{height:'0.5px',background:'rgba(255,255,255,0.07)'}}/>
 
