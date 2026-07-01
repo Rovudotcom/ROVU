@@ -23,11 +23,23 @@ export default function DashboardPage({ params }: { params: { slug: string } }) 
   const [feedback, setFeedback] = useState<Feedback[]>([])
   const [staffMentions, setStaffMentions] = useState<{ name: string; count: number; initials: string }[]>([])
   const [loading, setLoading] = useState(true)
+  const [authed, setAuthed] = useState(false)
   const [qrUrl, setQrUrl] = useState('')
   const [tab, setTab] = useState<'overview'|'qr'>('overview')
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        window.location.href = '/login'
+      } else {
+        setAuthed(true)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    if (!authed) return
     async function load() {
       const { data: v } = await supabase.from('venues').select('*').eq('slug', params.slug).single()
       if (!v) { setLoading(false); return }
@@ -57,7 +69,7 @@ export default function DashboardPage({ params }: { params: { slug: string } }) 
       setLoading(false)
     }
     load()
-  }, [params.slug])
+  }, [authed, params.slug])
 
   function downloadQR() {
     if (!qrUrl || !venue) return
